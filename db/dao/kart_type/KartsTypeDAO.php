@@ -6,16 +6,16 @@
  * Date: 12/11/2016
  * Time: 16:58
  */
-class KartsDAO
+class KartsTypeDAO
 {
 
-    const _CLASS = "Kart";
-    const _TABLE = "karts";
-    const ID = "id";
+    const _CLASS = "KartType";
+    const _TABLE = "kart_type";
 
-    const NUMBER = "number";
+    const ID = "id";
     const TYPE = "type";
-    const AVAILABLE = "available";
+    const DESC = "desc";
+    const IMG_PATH="img_path";
 
 
     /**
@@ -27,10 +27,10 @@ class KartsDAO
 
         $ds = new DataSource();
         $sql = sprintf("SELECT * from %s ", self::_TABLE);
-        $userlist = $ds->fetchAllToClass($sql, self::_CLASS);
+        $kart_typeList = $ds->fetchAllToClass($sql, self::_CLASS);
         $ds->close();
 
-        return $userlist;
+        return $kart_typeList;
 
     }
 
@@ -41,10 +41,10 @@ class KartsDAO
         $ds = new DataSource();
         $sql = sprintf("SELECT * from %s where %s=?", self::_TABLE, self::ID);
         $params = array($id);
-        $user = $ds->fetchToClass($sql, self::_CLASS, $params);
+        $kart_type = $ds->fetchToClass($sql, self::_CLASS, $params);
         $ds->close();
 
-        return $user;
+        return $kart_type;
 
     }
 
@@ -58,18 +58,19 @@ class KartsDAO
 
         $ds = new DataSource();
 
-        $sql = sprintf("insert into %s (%s,%s,%s) 
+        $sql = sprintf("insert into %s (%s,%s, %s) 
                  values ( 
-                    :number,
                     :type,
-                    :available 
+                    :desc,
+                    :img_path
+                    
                   
-                     )", self::_TABLE, self::NUMBER, self::TYPE, self::AVAILABLE);
+                     )", self::_TABLE, self::TYPE, self::DESC, self::IMG_PATH);
 
         $params = array(
-            ":number" => $tableName->getNumber(),
             ":type" => $tableName->getType(),
-            ":available" => $tableName->getAvailable()
+            ":desc" => $tableName->getDesc(),
+            ":img_path" => $tableName->getImgPath()
         );
 
         $result = $ds->execute($sql, $params);
@@ -85,15 +86,16 @@ class KartsDAO
         $ds = new DataSource();
 
         $sql = sprintf("update %s set 
-                number=:number,
                     type=:type,
-                    avilable=:available
+                    desc=:desc,
+                    img_path=:img_path
+                    
                  where id=%s", self::_TABLE, $id);
 
         $params = array(
-            ":number" => $tableName->getNumber(),
             ":type" => $tableName->getType(),
-            ":available" => $tableName->getAvailable()
+            ":desc" => $tableName->getDesc(),
+            ":img_path" => $tableName->getImgPath()
         );
 
         $result = $ds->execute($sql, $params);

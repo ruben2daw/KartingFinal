@@ -47,8 +47,8 @@
             $section = $_GET["section"];
             
             if($section=="karts"){
-              $kartsDAO = new KartsDAO();
-              $kartsList= $kartsDAO->getAll();
+              $kartsTypeDAO = new KartsTypeDAO();
+              $kartsList = $kartsTypeDAO->getAll();
               
               include_once('templates/karts.php');
               
@@ -63,6 +63,7 @@
             }
           
           }else {
+
               include_once("templates/home.php");
             }
           
