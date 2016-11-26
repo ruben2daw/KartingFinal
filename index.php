@@ -29,6 +29,11 @@
           include_once("templates/nav_menu.php");
      ?>
      <div class="row" >
+
+       <?php /*Mostrar noticias*/
+
+       ?>
+
      <?php  
           
           if(isset($_GET['page'])){
