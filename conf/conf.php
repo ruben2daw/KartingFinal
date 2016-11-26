@@ -2,7 +2,7 @@
 
 
 return [
-
+/*Hola sosio!!*/
                         "db_host" => "localhost",
                         "db_name" => "karting",
                         "db_user" => "root",
