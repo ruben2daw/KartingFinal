@@ -29,13 +29,10 @@
           include_once("templates/nav_menu.php");
      ?>
      <div class="row" >
-
-
-
      <?php  
           
           if(isset($_GET['page'])){
-            
+
             $id_page=$_GET['page'];
             $pageDAO=new PageDAO();
             $page=$pageDAO->getByPage($id_page);
@@ -64,6 +61,8 @@
           
           }else {
 
+              $objeto = new NewsDAO;
+              $listaNews= $objeto->getAll();
               include_once("templates/home.php");
             }
           

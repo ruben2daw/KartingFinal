@@ -3,9 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="84c10ffb-6775-48f5-9494-f68e7801cea7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/dao/karts/Kart.php" afterPath="$PROJECT_DIR$/db/dao/karts/Kart.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/dao/karts/KartsDAO.php" afterPath="$PROJECT_DIR$/db/dao/karts/KartsDAO.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/dao/news/News.php" afterPath="$PROJECT_DIR$/db/dao/news/News.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home.php" afterPath="$PROJECT_DIR$/templates/home.php" />
+>>>>>>> e2b2dc77833501d4647fc56d1be24856b51db35b
     </list>
     <ignored path="kartingDavid.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,16 +32,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="212">
               <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
               <folding />
+=======
+      <file leaf-file-name="NewsDAO.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/dao/news/NewsDAO.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+              <folding>
+                <marker date="1480171145936" expanded="true" signature="114:132" ph="SELECT * fro... news" />
+                <marker date="1480171145936" expanded="true" signature="355:384" ph="SELECT * fro... news" />
+                <marker date="1480171145936" expanded="true" signature="646:764" ph="insert into news... " />
+                <marker date="1480171145936" expanded="true" signature="1170:1232" ph="update news " />
+                <marker date="1480171145936" expanded="true" signature="1683:1712" ph="delete from " />
+              </folding>
+>>>>>>> e2b2dc77833501d4647fc56d1be24856b51db35b
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="KartsTypeDAO.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/dao/kart_type/KartsTypeDAO.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -46,16 +68,87 @@
                 <marker date="1480182398646" expanded="true" signature="680:707" ph="SELECT * fro... " />
                 <marker date="1480182398646" expanded="true" signature="1025:1226" ph="insert into " />
                 <marker date="1480182398646" expanded="true" signature="2244:2269" ph="DELETE from " />
+=======
+      <file leaf-file-name="News.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/dao/news/News.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+              <folding>
+                <marker date="1480183364441" expanded="true" signature="168:238" ph="..." />
+                <marker date="1480183364441" expanded="true" signature="168:292" ph="..." />
+                <marker date="1480183364441" expanded="true" signature="168:343" ph="..." />
+                <marker date="1480183364441" expanded="true" signature="347:348" ph="..." />
+                <marker date="1480183364441" expanded="true" signature="347:1011" ph="..." />
+>>>>>>> e2b2dc77833501d4647fc56d1be24856b51db35b
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="KartType.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/dao/kart_type/KartType.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
               <caret line="74" column="32" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="32" />
+=======
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/dao/users/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-15">
+              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataSource.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/DataSource.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="731">
+              <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/home.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="54" column="53" selection-start-line="54" selection-start-column="53" selection-end-line="54" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_aside.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/admin/admin_aside.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> e2b2dc77833501d4647fc56d1be24856b51db35b
               <folding />
             </state>
           </provider>
@@ -99,11 +192,15 @@
         <option value="$PROJECT_DIR$/conf/conf.php" />
         <option value="$PROJECT_DIR$/templates/register.php" />
         <option value="$PROJECT_DIR$/templates/home.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/db/dao/karts/KartsDAO.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/db/dao/kart_type/KartsTypeDAO.php" />
         <option value="$PROJECT_DIR$/db/dao/kart_type/KartType.php" />
         <option value="$PROJECT_DIR$/templates/karts.php" />
+=======
+        <option value="$PROJECT_DIR$/db/dao/news/News.php" />
+>>>>>>> e2b2dc77833501d4647fc56d1be24856b51db35b
       </list>
     </option>
   </component>
@@ -173,7 +270,93 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="resources" />
+=======
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProyectoKarting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProyectoKarting" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProyectoKarting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProyectoKarting" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="private" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProyectoKarting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProyectoKarting" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProyectoKarting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProyectoKarting" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProyectoKarting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProyectoKarting" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="users" />
+>>>>>>> e2b2dc77833501d4647fc56d1be24856b51db35b
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -191,7 +374,47 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="img" />
+=======
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProyectoKarting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProyectoKarting" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="news" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProyectoKarting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProyectoKarting" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conf" />
+>>>>>>> e2b2dc77833501d4647fc56d1be24856b51db35b
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -212,8 +435,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+<<<<<<< HEAD
       <recent name="C:\xampp\htdocs\ProyectoFinal\ProyectoKarting\db\dao\kart_type" />
       <recent name="C:\xampp\htdocs\ProyectoFinal\ProyectoKarting\db\dao\karts" />
+=======
+      <recent name="C:\xampp\htdocs\ProyectoFinal\ProyectoKarting\db\dao\x" />
+>>>>>>> e2b2dc77833501d4647fc56d1be24856b51db35b
       <recent name="C:\xampp\htdocs\phpStormProyects\kartingDavid\db\dao\reserves" />
       <recent name="C:\xampp\htdocs\phpStormProyects\kartingDavid\templates\user" />
     </key>
@@ -289,16 +516,27 @@
       <workItem from="1480164231645" duration="643000" />
       <workItem from="1480166541541" duration="153000" />
       <workItem from="1480169607134" duration="110000" />
+<<<<<<< HEAD
       <workItem from="1480171209493" duration="5639000" />
       <workItem from="1480178150504" duration="5429000" />
+=======
+      <workItem from="1480171209493" duration="12049000" />
+>>>>>>> e2b2dc77833501d4647fc56d1be24856b51db35b
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="38536000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-8" width="1936" height="1056" extended-state="6" />
+=======
+    <option name="totallyTimeSpent" value="39517000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+>>>>>>> e2b2dc77833501d4647fc56d1be24856b51db35b
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19270833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -363,6 +601,24 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> e2b2dc77833501d4647fc56d1be24856b51db35b
     <entry file="file://$PROJECT_DIR$/db/dao/pages/PageDAO.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -518,6 +774,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/templates/admin/admin_aside.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -525,6 +782,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> e2b2dc77833501d4647fc56d1be24856b51db35b
     <entry file="file://$PROJECT_DIR$/templates/admin/news_crud.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -564,22 +823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
           <caret line="41" column="39" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/DataSource.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/Config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -632,18 +875,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/dao/users/User.php">
+    <entry file="file://$PROJECT_DIR$/conf/Config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="33" column="16" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        <state relative-caret-position="187">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -658,6 +893,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/dao/users/UserDAO.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="17">
           <caret line="72" column="20" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
           <folding />
@@ -676,6 +912,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
           <caret line="53" column="16" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+=======
+        <state relative-caret-position="238">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+>>>>>>> e2b2dc77833501d4647fc56d1be24856b51db35b
           <folding>
             <marker date="1480169596951" expanded="true" signature="114:132" ph="SELECT * fro... news" />
             <marker date="1480169596951" expanded="true" signature="355:384" ph="SELECT * fro... news" />
@@ -686,6 +926,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/db/dao/karts/KartsDAO.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -703,12 +944,73 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+=======
+    <entry file="file://$PROJECT_DIR$/db/DataSource.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/admin_aside.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/dao/x/UserDAO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/dao/news/NewsDAO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+          <folding>
+            <marker date="1480171145936" expanded="true" signature="114:132" ph="SELECT * fro... news" />
+            <marker date="1480171145936" expanded="true" signature="355:384" ph="SELECT * fro... news" />
+            <marker date="1480171145936" expanded="true" signature="646:764" ph="insert into news... " />
+            <marker date="1480171145936" expanded="true" signature="1170:1232" ph="update news " />
+            <marker date="1480171145936" expanded="true" signature="1683:1712" ph="delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/dao/users/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="54" column="53" selection-start-line="54" selection-start-column="53" selection-end-line="54" selection-end-column="53" />
+>>>>>>> e2b2dc77833501d4647fc56d1be24856b51db35b
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/dao/karts/Kart.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="510">
           <caret line="30" column="51" selection-start-line="28" selection-start-column="7" selection-end-line="30" selection-end-column="51" />
           <folding />
@@ -758,7 +1060,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+=======
+        <state relative-caret-position="51">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+>>>>>>> e2b2dc77833501d4647fc56d1be24856b51db35b
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/dao/news/News.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+          <folding>
+            <marker date="1480183364441" expanded="true" signature="168:238" ph="..." />
+            <marker date="1480183364441" expanded="true" signature="168:292" ph="..." />
+            <marker date="1480183364441" expanded="true" signature="168:343" ph="..." />
+            <marker date="1480183364441" expanded="true" signature="347:348" ph="..." />
+            <marker date="1480183364441" expanded="true" signature="347:1011" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
