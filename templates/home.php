@@ -1,3 +1,5 @@
 <section class="col-md-10">
-    Hola karting
+    <?php /*Mostrar noticias*/
+
+    ?>
 </section>

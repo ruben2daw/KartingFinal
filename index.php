@@ -30,9 +30,7 @@
      ?>
      <div class="row" >
 
-       <?php /*Mostrar noticias*/
 
-       ?>
 
      <?php  
           
