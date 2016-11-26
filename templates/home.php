@@ -1,5 +1,5 @@
 <section class="col-md-10">
-    <?php /*Mostrar noticias*/
+    <?php /*Mostrar noticias!!*/
 
     ?>
 </section>
