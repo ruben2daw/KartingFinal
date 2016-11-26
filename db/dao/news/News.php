@@ -6,7 +6,20 @@ class News {
     private $title;
     private $created;
     private $content;
-    
+
+    function __toString(){
+        $contingut =" 
+        <ul>
+            <li>Titulo:  \" . $this->title . \"</li>
+            <li>Fecha: \" . $this->created . \"</li> 
+            <li>Contenido: \" . $this->content . </li>
+        <ul>";
+
+        return $contingut;
+
+
+    }
+
     function getId(){
         return $this->id;    
     }
@@ -26,7 +39,7 @@ class News {
 
     
    
-    
+
     function setId($id){
         $this->id = $id;    
     }
@@ -44,7 +57,7 @@ class News {
     function setContent($content){
         $this->content = $content;    
     }
-    
+
   
     
  
