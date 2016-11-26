@@ -20,7 +20,7 @@
                     <a href="index.php?section=records">Records</a>
                 </li>
                 <li>
-                    <a href="index.php?section=reserves">Reservas</a>
+                    <a href="index.php?section=promociones">Promociones</a>
                 </li>
                 <li>
                     <a href="index.php?section=register">Registrate</a>
