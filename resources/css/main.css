@@ -1,0 +1,72 @@
+@media (min-width: 1200px) { .container { width: 970px !important; } }
+
+header,footer{
+    background-color:black;color:red;
+}
+
+aside{background-color:brown;height:500px;color:white;}
+
+nav{border: 1px solid black;}
+
+section{
+    border: 1px solid black;
+    height:500px;
+    padding-top: 25px;
+    overflow: scroll;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+
+}
+
+
+
+
+
+nav ul li {
+    float: left;border-right: 1px solid black;
+}
+
+aside ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+aside ul li {
+   border: 1px solid black;
+}
+
+
+aside ul li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+    color:white;
+}
+
+nav ul li:last-child {
+    border-right: none;
+}
+
