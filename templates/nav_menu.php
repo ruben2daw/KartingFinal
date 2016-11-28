@@ -25,6 +25,9 @@
                 <li>
                     <a href="index.php?section=register">Registrate</a>
                 </li>
+                <li>
+                    <a href="index.php?page=promos">Promociones</a>
+                </li>
                 <li style="float:right"><a class="active" href="index.php?section=login">Área Personal</a></li>
         </ul>
     </nav>
