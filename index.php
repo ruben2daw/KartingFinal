@@ -49,14 +49,16 @@
               
               include_once('templates/karts.php');
               
-            }elseif ($section=="reservas") {
-              // code...
-            }elseif($section=="register"){
-              include_once("templates/register.php");
-            }elseif ($section=="login") {
+            }else if ($section=="records") {
+              include_once("templates/records.php");
+            }else if($section=="promociones"){
+              include_once("templates/promociones.php");
+            }else if ($section=="login") {
               include_once("templates/login.php");
+            }else if ($section=="register") {
+              include_once("templates/register.php");
             }else {
-              include_once("templates/home.php");
+              echo "PAGINA NO INCLUIDA";
             }
           
           }else {

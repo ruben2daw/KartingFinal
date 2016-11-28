@@ -39,12 +39,18 @@
               
               include_once("../templates/admin/news_crud.php");
               
-            }elseif ($option=="reserves") {
-              // code...
-            }elseif($option=="sessions"){
-              
-            }elseif ($option=="promos") {
-              
+            }else if ($option=="reservas") {
+              include_once("../templates/admin/reservas.php");
+            }else if ($option=="tandas") {
+              include_once("../templates/admin/tandas.php");
+            }else if ($option=="gestionKarts") {
+              include_once("../templates/admin/gestionKarts.php");
+            }else if ($option=="gestionUsuarios") {
+              include_once("../templates/admin/gestionUsuarios.php");
+            }else if($option=="sesiones"){
+              include_once("../templates/admin/sesiones.php");
+            }elseif ($option=="promociones") {
+              include_once("../templates/admin/promociones.php");
             }elseif ($option=="page") {
               include_once("../templates/admin/page_editor.php");
             }
