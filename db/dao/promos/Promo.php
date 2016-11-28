@@ -63,7 +63,7 @@ class Promo {
 
 
 }
-    $objeto = new NewsDAO;
+    $objeto = new PromosDAO;
     $listaPromo= $objeto->getAll();
 
     foreach ($listaNews as $promociones) {
