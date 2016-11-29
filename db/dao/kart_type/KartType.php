@@ -18,7 +18,7 @@ class KartType
         return "id" . $this->id . " 
         </br> typo es " . $this->type . "
          </br> desc es " . $this->desc . "         
-        </br> ruta <img src=resources/img/".$this->img_path.">"  ;
+        </br> ruta <img src=".$this->img_path."/>"  ;
     }
 
     /**

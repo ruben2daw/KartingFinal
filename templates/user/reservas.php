@@ -31,7 +31,7 @@ if($_POST){
 
     }
 
-    header("Location: ".$_SERVER['PHP_SELF']."?option=reservasCliente");
+   // header("Location: ".$_SERVER['PHP_SELF']."?option=reservasCliente");
 }
 
 ?>
@@ -63,9 +63,9 @@ if($_POST){
             <script src="../resources/js/tinymce/tinymce.min.js"></script>
             <script src="../resources/js/loadtiny.js"></script>
             <form action="#" method="POST">
-                Titulo:<input name="title" type="text" value="<?php echo $news!=null ? $news->getTitle() : ''; ?>"><br>
-                Contenido:<textarea name="content"><?php echo $news!=null ? $news->getContent() : ''; ?></textarea>
-                <input type="hidden" name="id" value="<?php echo $news!=null ? $news->getId() : ''; ?>">
+                Titulo:<input name="title" type="text" value="<?php echo $promo!=null ? $promo->getTitle() : ''; ?>"><br>
+                Contenido:<textarea name="content"><?php echo $promo!=null ? $promo->getContent() : ''; ?></textarea>
+                <input type="hidden" name="id" value="<?php echo $promo!=null ? $promo->getId() : ''; ?>">
                 <input type="submit" value="Enviar">
             </form>
 

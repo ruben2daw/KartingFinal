@@ -78,7 +78,10 @@ class DataSource{
     function execute($sql,$values=array()){
     
         $stmt = $this->connection->prepare($sql);
-        return $stmt->execute($values);
+        $res=$stmt->execute($values);
+        $err=$stmt->errorInfo();
+        print_r($err);
+        return $res;
         
     }
     

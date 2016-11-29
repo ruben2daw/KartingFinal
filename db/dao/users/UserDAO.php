@@ -16,6 +16,15 @@ class UserDAO{
         return $userlist;
         
     }
+
+    public function getAllForAdmin(){
+        $ds = new DataSource();
+        $sql = "SELECT id,login,password, email,firstname,lastname,role from users";
+        $userlist = $ds->fetchAllToClass($sql,"User");
+        $ds->close();
+
+        return $userlist;
+    }
     
     
     public function getById($id){
@@ -28,6 +37,18 @@ class UserDAO{
         
         return $user;
         
+    }
+
+    public function getByIdForAdmin($id){
+
+        $ds = new DataSource();
+        $sql = "SELECT id,login,password, email,firstname,lastname,role from users";
+        $params = array($id);
+        $user = $ds->fetchToClass($sql,"User",$params);
+        $ds->close();
+
+        return $user;
+
     }
     
     
@@ -138,6 +159,36 @@ class UserDAO{
         
         return $result; 
         
+    }
+
+
+    public function updateForAdmin($user){
+
+        $ds = new DataSource();
+
+        $sql = "update users set 
+                login=:login,
+                 password=:password,
+                email=:email, 
+                firstname=:firstname,
+                lastname=:lastname,
+                role=:role where id=:id";
+
+
+        $params = array(
+            ":login" => $user->getLogin(),
+            ":password" => $user->getPassword(),
+            ":email" => $user->getEmail(),
+            ":firstname" => $user->getFirstName(),
+            ":lastname" => $user->getLastName(),
+            ":role" => $user->getRole(),
+            ":id" => $user->getId()
+        );
+        $result = $ds->execute($sql,$params);
+        $ds->close();
+
+        return $result;
+
     }
 
 

@@ -7,6 +7,15 @@ class Promo {
     private $img;
     private $from;
     private $to;
+
+    /**
+     * Promo constructor.
+     */
+    public function __construct()
+    {
+    }
+
+
     function __toString(){
         $contingut =" 
         <ul>
@@ -21,42 +30,84 @@ class Promo {
 
     }
 
-    function getId(){
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    function getText(){
-        return $this->text;
-    }
-
-    function getTo(){
-        return $this->to;
-    }
-
-    function getFrom(){
-        return $this->from;
-    }
-
-
-
-
-
-    function setId($id){
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
         $this->id = $id;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
 
-    function setText($text){
+    /**
+     * @param mixed $text
+     */
+    public function setText($text)
+    {
         $this->text = $text;
     }
 
-    function setTo($to){
-        $this->img = $to;
+    /**
+     * @return mixed
+     */
+    public function getImg()
+    {
+        return $this->img;
     }
 
+    /**
+     * @param mixed $img
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
+    }
 
-    function setFrom($from){
+    /**
+     * @return mixed
+     */
+    public function getFrom()
+    {
+        return $this->from;
+    }
+
+    /**
+     * @param mixed $from
+     */
+    public function setFrom($from)
+    {
         $this->from = $from;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTo()
+    {
+        return $this->to;
+    }
+
+    /**
+     * @param mixed $to
+     */
+    public function setTo($to)
+    {
+        $this->to = $to;
     }
 
 
