@@ -11,6 +11,6 @@ echo "NUEVAS PROMOCIONES";
 $objeto = new PromosDAO;
 $listaPromo= $objeto->getAll();
 
-foreach ($listaNews as $promociones) {
+foreach ($listaPromo as $promociones) {
     echo "$promociones <br>";
 }
