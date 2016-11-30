@@ -9,7 +9,7 @@
 class PromosDAO
 {
 
-    const _CLASS = "Promo";
+   const _CLASS = "Promo";
     const _TABLE = "promo";
     const ID = "id";
 

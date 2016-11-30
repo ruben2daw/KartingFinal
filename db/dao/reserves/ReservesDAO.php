@@ -109,14 +109,21 @@ class ReservesDAO
     }
 
 
-
-
+    /**
+     * @param $id
+     * @return bool
+     * const USER = "user";
+    const DATE = "date";
+    const NUMBER = "number";
+    const TYPE = "type";
+    const KART_TYPE = "kart_type";
+     */
 
 
     public function getListNameUsersById($id){
 
         $ds = new DataSource();
-        $sql = "SELECT r.role from users u ,user_roles r where u.role=r.id and u.login=?";
+        $sql = "SELECT   from users u ,reserves r where u.role=r.id and u.login=?";
         $params = array($login);
         $role = $ds->fetch($sql,$params)[0];
         $ds->close();

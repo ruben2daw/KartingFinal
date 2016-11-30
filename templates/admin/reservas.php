@@ -81,18 +81,41 @@ if($_POST){
             header("Location: ".$_SERVER['PHP_SELF']."?option=gestionUsuarios");
         }
 
+        $reservasDAO= new ReservesDAO();
+       $listaReservasForm= $ReservasDAO->getAll();
+
         if($action=="create" || $action=="update"){
+
+
             ?>
 
 
 
             <form action="#" method="POST">
-                login:<input name="login" type="text" value="<?php echo $users!=null ? $users->getLogin() : ''; ?>"><br>
-                password:<input name="password" type="text" value="<?php echo $users!=null ? $users->getPassword() : ''; ?>"><br>
-                email:<input name="email" type="text" value="<?php echo $users!=null ? $users->getEmail() : ''; ?>"><br>
-                firstname:<input name="firstname" type="text" value="<?php echo $users!=null ? $users->getFirstname() : ''; ?>"><br>
-                lastName:<input name="lastname" type="text" value="<?php echo $users!=null ? $users->getLastname() : ''; ?>"><br>
-                role:<input name="role" type="text" value="<?php echo $users!=null ? $users->getRole() : ''; ?>"><br>
+
+
+
+
+
+                ID Usuario:<input name="id_usuario" type="text" value="<?php echo $users!=null ? $users->getPassword() : ''; ?>"><br>
+                date:<input name="date" type="text" value="<?php echo $users!=null ? $users->getPassword() : ''; ?>"><br>
+                numbero personas:<input name="numero_personas" type="text" value="<?php echo $users!=null ? $users->getEmail() : ''; ?>"><br>
+
+
+                <select name="tipo_reserva">
+                    <?php
+
+                    foreach ($listaReservasForm as $reserva) {
+
+                        echo '<option value="' . $reserva->getId() . '">' . $reserva->getFirstname() . '</option>';
+
+                    }
+
+                    ?>
+                </select><br>
+
+
+                kart_type:<input name="kart_type" type="text" value="<?php echo $users!=null ? $users->getLastname() : ''; ?>"><br>
 
                 <input type="hidden" name="id" value="<?php echo $users!=null ? $users->getId() : ''; ?>">
                 <input type="submit" value="Enviar">
@@ -111,9 +134,9 @@ if($_POST){
         if($listUser){
             echo "<table border='1'>
                 <tr>
-                    <td>login</td>
-                    <td>password</td>
-                    <td>email</td>
+                    <td>user</td>
+                    <td>date</td>
+                    <td>number</td>
                     <td>firstname</td>
                     <td>lastname</td>
                     <td>role</td>

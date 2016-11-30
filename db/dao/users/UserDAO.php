@@ -17,6 +17,7 @@ class UserDAO{
         
     }
 
+
     public function getAllForAdmin(){
         $ds = new DataSource();
         $sql = "SELECT id,login,password, email,firstname,lastname,role from users";
