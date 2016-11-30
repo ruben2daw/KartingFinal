@@ -80,7 +80,7 @@ class KartsTypeDAO
     }
 
 
-    public function update($tableName, $id)
+    public function update($tableName)
     {
 
         $ds = new DataSource();
@@ -88,14 +88,14 @@ class KartsTypeDAO
         $sql = sprintf("update %s set 
                     type=:type,
                     desc=:desc,
-                    img_path=:img_path
-                    
-                 where id=%s", self::_TABLE, $id);
+                    img_path=:img_path                    
+                  where id=:id", self::_TABLE);
 
         $params = array(
             ":type" => $tableName->getType(),
             ":desc" => $tableName->getDesc(),
-            ":img_path" => $tableName->getImgPath()
+            ":img_path" => $tableName->getImgPath(),
+            ":id" => $tableName->getId()
         );
 
         $result = $ds->execute($sql, $params);
@@ -103,6 +103,9 @@ class KartsTypeDAO
 
         return $result;
     }
+
+
+
 
     public function delete($id)
     {
