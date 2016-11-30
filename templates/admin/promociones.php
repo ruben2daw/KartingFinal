@@ -8,31 +8,21 @@
 
 echo "● CRUD de promociones";
 
+
+
 if($_POST){
 
     if(!empty($_POST['id'])){
 
-        $promosDAO = new PromosDAO;
-        $promos_upd=$promosDAO->getById($_POST['id']);
-        $promos_upd->setText($_POST['content']);
-        $promos_upd->setFrom($_POST['from']);
-        $promos_upd->setTo($_POST['to']);
-
-        $promos_upd->update($promos_upd);
 
     }else{
 
-        $promociones_ins= new Promo();
-        $promociones_ins->setText($_POST['content']);
-        $promociones_ins->setFrom($_POST['from']);
-        $promociones_ins->setTo($_POST['to']);
-        $promosDAO = new PromosDAO;
-        $promosDAO->insert($promociones_ins);
+
 
 
     }
 
-   // header("Location: ".$_SERVER['PHP_SELF']."?option=promociones");
+    header("Location: ".$_SERVER['PHP_SELF']."?option=promociones");
 }
 
 ?>
@@ -40,20 +30,13 @@ if($_POST){
     <?php
     if(isset($_GET['action'])){
         $action=$_GET['action'];
-        $promosDAO=null;
-        $promo=null;
 
         if($action=="update"){
 
-            $id=$_GET['id'];
-            $promosDAO=new PromosDAO();
-            $promosDAO=$promosDAO->getById($id);
 
         }elseif($action=="delete"){
 
-            $id=$_GET['id'];
-            $promosDAO=new PromosDAO();
-            $promosDAO=$promosDAO->delete($Id);
+
 
             header("Location: ".$_SERVER['PHP_SELF']."?option=promociones");
         }
@@ -63,12 +46,11 @@ if($_POST){
 
 
 
-            <script src="../resources/js/tinymce/tinymce.min.js"></script>
-            <script src="../resources/js/loadtiny.js"></script>
             <form action="#" method="POST">
                from:<input name="from" type="datetime-local" value="<?php echo $promo!=null ? $promo->getFrom() : ''; ?>"><br>
                 to:<input name="to" type="datetime-local" value="<?php echo $promo!=null ? $promo->getTo() : ''; ?>"><br>
-                contenido:<textarea name="content"><?php echo $promo!=null ? $promo->getText() : ''; ?></textarea>
+                contenido:<textarea name="content"><?php echo $promo!=null ? $promo->getText() : ''; ?></textarea><br>
+                ruta imagen:<input name="imagen" type="file"  ><?php echo $promo!=null ? $promo->getImg() : ''; ?><br>
                 <input type="hidden" name="id" value="<?php echo $promo!=null ? $promo->getId() : ''; ?>">
                 <input type="submit" value="Enviar">
             </form>
@@ -92,10 +74,12 @@ if($_POST){
                     <td>Texto</td>
                     <td>Desde</td>
                     <td>Hasta</td>
+                    <td>Ruta</td>
+
                 </tr>";
 
             foreach($listaPromo as $promo){
-                echo "<tr><td>".$promo->getId()."</td><td>".$promo->getFrom()."</td><td>".$promo->getTo()."</td>
+                echo "<tr><td>".$promo->getId()."</td><td>".$promo->getFrom()."</td><td>".$promo->getTo()."</td><td>".$promo->getImg()."</td></tr>
               <td>
                 <a href='".$_SERVER['PHP_SELF']."?option=promociones&action=update&id=".$promo->getId()."'>Actualizar</a>&nbsp;|
                 <a href='".$_SERVER['PHP_SELF']."?option=promociones&action=delete&id=".$promo->getId()."'>Borrar</a>&nbsp;
