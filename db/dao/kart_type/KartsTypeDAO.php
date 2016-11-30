@@ -79,7 +79,14 @@ class KartsTypeDAO
         return $result;
     }
 
+    public function getAllForAdminKart(){
+        $ds = new DataSource();
+        $sql = "SELECT id,type,desc,img_path from kart_type";
+        $kartList = $ds->fetchAllToClass($sql,"KartType");
+        $ds->close();
 
+        return $kartList;
+    }
     public function update($tableName)
     {
 
