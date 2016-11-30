@@ -28,10 +28,10 @@ class PromosDAO
 
         $ds = new DataSource();
         $sql = sprintf("SELECT * from %s ", self::_TABLE);
-        $userlist = $ds->fetchAllToClass($sql, self::_CLASS);
+        $promolist = $ds->fetchAllToClass($sql, self::_CLASS);
         $ds->close();
 
-        return $userlist;
+        return $promolist;
 
     }
 
@@ -42,10 +42,10 @@ class PromosDAO
         $ds = new DataSource();
         $sql = sprintf("SELECT * from %s where %s=?", self::_TABLE, self::ID);
         $params = array($id);
-        $user = $ds->fetchToClass($sql, self::_CLASS, $params);
+        $tableName = $ds->fetchToClass($sql, self::_CLASS, $params);
         $ds->close();
 
-        return $user;
+        return $tableName;
 
     }
 
@@ -53,6 +53,52 @@ class PromosDAO
     /**
      * CRUD
      */
+   /* public function getAllForAdmin(){
+        $ds = new DataSource();
+        $sql = "SELECT id,type,desc,img_path from kart_type";
+        $kartList = $ds->fetchAllToClass($sql,"KartType", $params);
+        $ds->close();
+
+        return $kartList;
+
+
+    } ESTO ES DE KART_TYPE!!*/
+    public function updateForAdmin($tableName){
+
+        $ds = new DataSource();
+
+        $sql = "update promo set 
+                text=:text,
+                img=:img,
+                from=:from, 
+                to=:to where id=:id";
+
+
+        $params = array(
+            ":login" => $tableName->getText(),
+            ":password" => $tableName->getImg(),
+            ":email" => $tableName->getFrom(),
+            ":firstname" => $tableName->getTo(),
+            ":id" => $tableName->getId()
+        );
+        $result = $ds->execute($sql,$params);
+        $ds->close();
+
+        return $result;
+
+    }
+    public function getByIdForAdmin($id){
+
+        $ds = new DataSource();
+        $sql = "SELECT id,type,desc, img_path from kart_type";
+        $params = array($id);
+        $promo = $ds->fetchToClass($sql,"KartType",$params);
+        $ds->close();
+
+        return $promo;
+
+    }
+
 
     public function insert($tableName)
     {
