@@ -14,13 +14,13 @@ if($_POST){
 
     if(!empty($_POST['id'])){
         $promosDAO=new PromosDAO();
-        $promo= $promosDAO->getByIdForAdmin($_POST['id']);
+        $promo= $promosDAO->getById($_POST['id']);
         $promo->setText($_POST['text']);
         $promo->setImg($_POST['img']);
         $promo->setFrom($_POST['from']);
         $promo->setTo($_POST['to']);
 
-        $result=$userDAO->updateForAdmin($promo);
+        $result=$promosDAO->update($promo);
 
         if($result==false){
             $error="Ha ocurrido un error al insertar la promoción. ";
@@ -74,7 +74,7 @@ if($_POST){
                from:<input name="from" type="datetime-local" value="<?php echo $promo!=null ? $promo->getFrom() : ''; ?>"><br>
                 to:<input name="to" type="datetime-local" value="<?php echo $promo!=null ? $promo->getTo() : ''; ?>"><br>
                 contenido:<textarea name="content"><?php echo $promo!=null ? $promo->getText() : ''; ?></textarea><br>
-                ruta imagen:<input name="imagen" type="file"  ><?php echo $promo!=null ? $promo->getImg() : ''; ?><br>
+                ruta imagen:<input name="imagen" type="text"  ><?php echo $promo!=null ? $promo->getImg() : ''; ?><br>
                 <input type="hidden" name="id" value="<?php echo $promo!=null ? $promo->getId() : ''; ?>">
                 <input type="submit" value="Enviar">
             </form>
