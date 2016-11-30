@@ -13,11 +13,37 @@ echo "● CRUD de promociones";
 if($_POST){
 
     if(!empty($_POST['id'])){
+        $promosDAO=new PromosDAO();
+        $promo= $promosDAO->getByIdForAdmin($_POST['id']);
+        $promo->setText($_POST['text']);
+        $promo->setImg($_POST['img']);
+        $promo->setFrom($_POST['from']);
+        $promo->setTo($_POST['to']);
 
+        $result=$userDAO->updateForAdmin($promo);
+
+        if($result==false){
+            $error="Ha ocurrido un error al insertar la promoción. ";
+        }else{
+            $msg="Promoción registrada correctamente";
+        }
 
     }else{
 
+        $promo = new Promo();
+        $promo->setText($_POST['text']);
+        $promo->setImg($_POST['img']);
+        $promo->setFrom($_POST['from']);
+        $promo->setTo($_POST['to']);
 
+        $promosDAO=new PromosDAO();
+        $result=$promosDAO->insert($promo);
+
+        if($result==false){
+            $error="Ha ocurrido un error al insertar la promoción. ";
+        }else{
+            $msg="La promoción se ha registrado correctamente";
+        }
 
 
     }
@@ -44,9 +70,7 @@ if($_POST){
         if($action=="create" || $action=="update"){
             ?>
 
-
-
-            <form action="#" method="POST">
+           <form action="#" method="POST">
                from:<input name="from" type="datetime-local" value="<?php echo $promo!=null ? $promo->getFrom() : ''; ?>"><br>
                 to:<input name="to" type="datetime-local" value="<?php echo $promo!=null ? $promo->getTo() : ''; ?>"><br>
                 contenido:<textarea name="content"><?php echo $promo!=null ? $promo->getText() : ''; ?></textarea><br>
