@@ -109,6 +109,26 @@ class ReservesDAO
     }
 
 
+
+
+
+
+    public function getListNameUsersById($id){
+
+        $ds = new DataSource();
+        $sql = "SELECT r.role from users u ,user_roles r where u.role=r.id and u.login=?";
+        $params = array($login);
+        $role = $ds->fetch($sql,$params)[0];
+        $ds->close();
+
+        if($role=="admin")
+            return true;
+        else
+            return false;
+
+    }
+
+
     /**
      * CRUD
      */
@@ -142,18 +162,18 @@ class ReservesDAO
     }
 
 
-    public function update($tableName, $id)
+    public function update($tableName)
     {
 
         $ds = new DataSource();
 
         $sql = sprintf("update %s set 
-                    user =:user,
-                    date =:date,
-                    number =:number,
-                    type =:type,
-                    kart_type =:kart_type    
-                 where id=%s", self::_TABLE, $id);
+                    user=:user,
+                    date=:date,
+                    number=:number,
+                    type=:type,
+                    kart_type=:kart_type    
+                 where id=:id", self::_TABLE);
 
         $params = array(
             ":user" => $tableName->getUser(),
@@ -169,6 +189,8 @@ class ReservesDAO
 
         return $result;
     }
+
+
 
     public function delete($id)
     {

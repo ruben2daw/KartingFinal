@@ -13,12 +13,12 @@ if($_POST){
 
     if(!empty($_POST['id'])){
         $kartsTypeDAO= new KartsTypeDAO();
-        $kartsType= $kartsTypeDAO->getByIdForAdmin($_POST['id']);
+        $kartsType= $kartsTypeDAO->getById($_POST['id']);
         $kartsType->setType($_POST['type']);
         $kartsType->setDesc($_POST['desc']);
         $kartsType->setImgPath($_POST['img_path']);
 
-        $result=$kartsTypeDAO->updateForAdmin($kartsType);
+        $result=$kartsTypeDAO->update($kartsType);
 
         if($result==false){
             $error="Ha ocurrido un error al gestionar el kart. ";
@@ -30,7 +30,7 @@ if($_POST){
     }  else{
 
 
-        $kartsType = new Kart();
+        $kartsType = new KartType();
         $kartsType->setType($_POST['type']);
         $kartsType->setDesc($_POST['desc']);
         $kartsType->setImgPath($_POST['img_path']);
@@ -62,7 +62,8 @@ if($_POST){
 
             $id=$_GET['id'];
             $kartsTypeDAO=new KartsTypeDAO();
-            $kartsType=$kartsTypeDAO->getByIdForAdminKart($id);
+            $kartsType=$kartsTypeDAO->getById($id);
+            $kartsTypeDAO->update($kartsType);
 
         }else if($action=="delete"){
 
@@ -80,8 +81,8 @@ if($_POST){
 
             <form action="#" method="POST">
                 Tipo:<input name="type" type="text" value="<?php echo $kartsType!=null ? $kartsType->getType() : ''; ?>"><br>
-                Descripción:<input name="descripcion" type="text" value="<?php echo $kartsType!=null ? $kartsType->getDesc() : ''; ?>"><br>
-                Dirección imagen:<input name="email" type="text" value="<?php echo $kartsType!=null ? $kartsType->getImgPath() : ''; ?>"><br>
+                Descripción:<input name="desc" type="text" value="<?php echo $kartsType!=null ? $kartsType->getDesc() : ''; ?>"><br>
+                Dirección imagen:<input name="img_path" type="text" value="<?php echo $kartsType!=null ? $kartsType->getImgPath() : ''; ?>"><br>
 
                 <input type="hidden" name="id" value="<?php echo $kartsType!=null ? $kartsType->getId() : ''; ?>">
                 <input type="submit" value="Enviar">
@@ -93,7 +94,7 @@ if($_POST){
 
     }else{
         $kartsTypeDAO=new KartsTypeDAO();
-        $listKart=$kartsTypeDAO->getAllForAdminKart();
+        $listKart=$kartsTypeDAO->getAll();
 
 
         echo "<a href='".$_SERVER['PHP_SELF']."?option=gestionKarts&action=create'>Crear Kart</a>";

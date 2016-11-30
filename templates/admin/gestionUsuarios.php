@@ -24,9 +24,9 @@ if($_POST){
         $result=$userDAO->updateForAdmin($user);
 
         if($result==false){
-            $error="Ha ocurrido un error al insertar el usuario. ";
+            $error="Ha ocurrido un error al actualizar el usuario. ";
         }else{
-            $msg="Usuario registrado correctamente";
+            $msg="Usuario actualizado correctamente";
         }
 
 
