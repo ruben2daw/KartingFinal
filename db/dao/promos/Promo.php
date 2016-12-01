@@ -1,7 +1,13 @@
 <?php
 
-class Promo {
-
+/**
+ * Created by PhpStorm.
+ * User: ruben_000
+ * Date: 12/11/2016
+ * Time: 13:22
+ */
+class Promo
+{
     private $id;
     private $text;
     private $img;
@@ -13,21 +19,6 @@ class Promo {
      */
     public function __construct()
     {
-    }
-
-
-    function __toString(){
-        $contingut =" 
-        <ul>
-            <li>Texto:  \" . $this->text . \"</li>
-            <li>De: \" . $this->from . \" </li>
-            <li>To: \" . $this->to . </li >
-
-        <ul>";
-
-        return $contingut;
-
-
     }
 
     /**
@@ -113,7 +104,6 @@ class Promo {
 
 
 
+
+
 }
-
-
-?>
