@@ -78,8 +78,8 @@ if($_POST){
         if($action=="create" || $action=="update"){
             ?>
 
-           <form action="#" method="POST">
-               from:<input name="from" type="datetime-local" value="<?php echo $tableName!=null ? $tableName->getFrom() : ''; ?>"><br>
+            <form action="#" method="POST">
+                from:<input name="from" type="datetime-local" value="<?php echo $tableName!=null ? $tableName->getFrom() : ''; ?>"><br>
                 to:<input name="to" type="datetime-local" value="<?php echo $tableName!=null ? $tableName->getTo() : ''; ?>"><br>
                 contenido:<textarea name="content"><?php echo $tableName!=null ? $tableName->getText() : ''; ?></textarea><br>
                 ruta imagen:<input name="imagen" type="text" value="<?php echo $tableName!=null ? $tableName->getImg() : ''; ?>"><br>

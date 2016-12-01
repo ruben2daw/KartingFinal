@@ -53,16 +53,16 @@ class PromosDAO
     /**
      * CRUD
      */
-   /* public function getAllForAdmin(){
-        $ds = new DataSource();
-        $sql = "SELECT id,type,desc,img_path from kart_type";
-        $kartList = $ds->fetchAllToClass($sql,"KartType", $params);
-        $ds->close();
+    /* public function getAllForAdmin(){
+         $ds = new DataSource();
+         $sql = "SELECT id,type,desc,img_path from kart_type";
+         $kartList = $ds->fetchAllToClass($sql,"KartType", $params);
+         $ds->close();
 
-        return $kartList;
+         return $kartList;
 
 
-    } ESTO ES DE KART_TYPE!!*/
+     } ESTO ES DE KART_TYPE!!*/
     public function updateForAdmin($tableName){
 
         $ds = new DataSource();

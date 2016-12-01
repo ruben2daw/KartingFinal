@@ -9,45 +9,51 @@
 echo "● Ver reservas realizadas, pasadas, cancelar reservas etc.";
 
 
-
-
 if($_POST){
 
     if(!empty($_POST['id'])){
-        $userDAO=new UserDAO();
-        $user= $userDAO->getByIdForAdmin($_POST['id']);
-        $user->setLogin($_POST['login']);
-        $user->setFirstName($_POST['firstname']);
-        $user->setLastName($_POST['lastname']);
-        $user->setPassword(password_hash($_POST['password'],PASSWORD_DEFAULT));
-        $user->setEmail($_POST['email']);
-        $user->setRole($_POST['role']);
 
-        $result=$userDAO->updateForAdmin($user);
+
+        $reservasDAO = new ReservesDAO();
+        //$reserva= new Reserve();
+        $reserva=$reservasDAO->getById($_POST['id']);
+        $reserva->setUser($_POST['user_id']);
+        $reserva->setDate($_POST['date']);
+        $reserva->setNumber($_POST['numero_personas']);
+        $reserva->setType($_POST['tipo_reserva']);
+        $reserva->setKartType($_POST['kart_type']);
+
+        $result=$reservasDAO->update($reserva);
+
 
         if($result==false){
-            $error="Ha ocurrido un error al insertar el usuario. ";
+            $error="Ha ocurrido un error al actualizar el reserva. ";
+            echo $error;
         }else{
             $msg="Usuario registrado correctamente";
+            header("Loaction: ".$_SERVER['PHP_SELF']."?option=reservas");
+
         }
 
 
     }else{
 
 
-        $user = new User();
-        $user->setLogin($_POST['login']);
-        $user->setFirstName($_POST['firstname']);
-        $user->setLastName($_POST['lastname']);
-        $user->setPassword(password_hash($_POST['password'],PASSWORD_DEFAULT));
-        $user->setEmail($_POST['email']);
-        $user->setRole($_POST['role']);
 
-        $userDAO=new UserDAO();
-        $result=$userDAO->insert($user);
+        $reserva = new Reserve();
+        $reserva->setUser($_POST['user_id']);
+        $reserva->setDate($_POST['date']);
+        $reserva->setNumber($_POST['numero_personas']);
+        $reserva->setType($_POST['tipo_reserva']);
+        $reserva->setKartType($_POST['kart_type']);
+        $reservasDAO = new ReservesDAO();
+        $result= $reservasDAO->insert($reserva);
+
 
         if($result==false){
-            $error="Ha ocurrido un error al insertar el usuario. ";
+            $error="Ha ocurrido un error al insertar el reserva. ";
+            echo $error;
+
         }else{
             $msg="Usuario registrado correctamente";
         }
@@ -64,72 +70,140 @@ if($_POST){
     if(isset($_GET['action'])){
         $action=$_GET['action'];
 
-        $users=null;
+        $reservas=null;
 
         if($action=="update"){
 
-            $id=$_GET['id'];
-            $userDAO=new UserDAO();
-            $users=$userDAO->getByIdForAdmin($id);
+            $id = $_GET['id'];
+            $reservasDAO = new ReservesDAO();
+            $reservas = $reservasDAO->getById($id);
+          //  $reservasDAO->update($reservas);
 
         }else if($action=="delete"){
 
             $id=$_GET['id'];
-            $userDAO=new UserDAO();
+            $reservasDAO = new ReservesDAO();
             $userDAO->delete($id);
 
-            header("Location: ".$_SERVER['PHP_SELF']."?option=gestionUsuarios");
+            header("Location: ".$_SERVER['PHP_SELF']."?option=reservas");
         }
 
+       $kartsTypeDAO= new KartsTypeDAO();
+       $listaKartsTypeForm= $kartsTypeDAO->getAll();
+
+       $reservasTypeDAO= new ReservesTypeDAO();
+       $listaReservasTypeForm = $reservasTypeDAO->getAll();
+
+
+        $userDAO= new UserDAO();
+        $listaUsersForm = $userDAO->getAll();
+
         if($action=="create" || $action=="update"){
+
+
             ?>
 
 
 
             <form action="#" method="POST">
-                login:<input name="login" type="text" value="<?php echo $users!=null ? $users->getLogin() : ''; ?>"><br>
-                password:<input name="password" type="text" value="<?php echo $users!=null ? $users->getPassword() : ''; ?>"><br>
-                email:<input name="email" type="text" value="<?php echo $users!=null ? $users->getEmail() : ''; ?>"><br>
-                firstname:<input name="firstname" type="text" value="<?php echo $users!=null ? $users->getFirstname() : ''; ?>"><br>
-                lastName:<input name="lastname" type="text" value="<?php echo $users!=null ? $users->getLastname() : ''; ?>"><br>
-                role:<input name="role" type="text" value="<?php echo $users!=null ? $users->getRole() : ''; ?>"><br>
 
-                <input type="hidden" name="id" value="<?php echo $users!=null ? $users->getId() : ''; ?>">
+                Nombre Usuario:
+                <select name="user_id">
+                    <?php
+
+                    //var_dump($listaKartsTypeForm);
+                    foreach ($listaUsersForm as $user) {
+
+                        echo '<option value="' . $user->getId() . '">' . $user->getFirstname()." ".$user->getLastname() . '</option>';
+
+                    }
+
+                    ?>
+                </select><br>
+
+
+
+
+
+                date:<input name="date" type="datetime-local" value="<?php echo $reservas!=null ? $reservas->getDate() : ''; ?>"><br>
+                numbero personas:<input name="numero_personas" type="number" value="<?php echo $reservas!=null ? $reservas->getNumber() : ''; ?>"><br>
+
+                Tipo de coche:
+                <select name="kart_type">
+                    <?php
+
+                    //var_dump($listaKartsTypeForm);
+                    foreach ($listaKartsTypeForm as $kartType) {
+
+                        echo '<option value="' . $kartType->getId() . '">' . $kartType->getDesc() . '</option>';
+
+                    }
+
+                    ?>
+                </select><br>
+
+
+                tipo reserva:
+               <input name="tipo_reserva" type="number" value="<?php echo $reservas!=null ? $reservas->getNumber() : ''; ?>"><br>
+
+
+
+
+                <input type="hidden" name="id" value="<?php echo $reservas!=null ? $reservas->getId() : ''; ?>">
                 <input type="submit" value="Enviar">
             </form>
 
             <?php
         }
 
+        /**
+         *  tipo reserva:
+
+        <select name="tipo_reserva">
+        <?php
+
+
+        foreach ($listaReservasTypeForm as $reservaType) {
+
+        echo '<option value="' . $reservaType->getId() . '">' . $reservaType->getDescripcion() . '</option>';
+
+        }
+
+        ?>
+        </select><br>
+         */
+
 
     }else{
-        $userDAO=new UserDAO();
-        $listUser=$userDAO->getAllForAdmin();
+
+        $reservasDAO = new ReservesDAO();
+        $listaReservas =$reservasDAO->getAll();
 
 
-        echo "<a href='".$_SERVER['PHP_SELF']."?option=gestionUsuarios&action=create'>Crear Usuario</a>";
-        if($listUser){
+
+        echo "<a href='".$_SERVER['PHP_SELF']."?option=reservas&action=create'>Crear Reserva</a>";
+        if($listaReservas){
             echo "<table border='1'>
                 <tr>
-                    <td>login</td>
-                    <td>password</td>
-                    <td>email</td>
-                    <td>firstname</td>
-                    <td>lastname</td>
-                    <td>role</td>
+                    <td>id</td>
+                    <td>user</td>
+                    <td>date</td>
+                    <td>number</td>
+                    <td>type</td>
+                    <td>kartType</td>
                     
                 </tr>";
 
-            foreach($listUser as $users){
-                echo "<tr><td>".$users->getId()."</td><td>".$users->getLogin()."</td><td>".$users->getPassword()."</td><td>".$users->getEmail()."</td><td>".$users->getFirstname()."</td><td>".$users->getLastname()."</td><td>".$users->getRole()."</td></tr>
+            foreach($listaReservas as $reservas){
+                echo "<tr><td>".$reservas->getId()."</td><td>".$reservas->getUser()."</td><td>".$reservas->getDate()."</td><td>".$reservas->getNumber()."</td><td>".$reservas->getType()."</td><td>".$reservas->getKartType()."</td></tr>
               <td>
-                <a href='".$_SERVER['PHP_SELF']."?option=gestionUsuarios&action=update&id=".$users->getId()."'>Actualizar</a>&nbsp;|
-                <a href='".$_SERVER['PHP_SELF']."?option=gestionUsuarios&action=delete&id=".$users->getId()."'>Borrar</a>&nbsp;
+                <a href='".$_SERVER['PHP_SELF']."?option=reservas&action=update&id=".$reservas->getId()."'>Actualizar</a>&nbsp;|
+                <a href='".$_SERVER['PHP_SELF']."?option=reservas&action=delete&id=".$reservas->getId()."'>Borrar</a>&nbsp;
               </td></tr>";
             }
             echo "</table>";
         }else{
-            echo "<h1>No hay Usuarios</h1>";
+            echo "<h1>No hay Reservas</h1>";
         }
     }
 

@@ -8,13 +8,12 @@ if($_POST){
 
     if(!empty($_POST['id'])){
 
-        $reservas_upd=$reservasDAO->getById($_POST['id']);
-        $reserva = new Reserve();
+        $reserva  = $reservasDAO->getById($_POST['id']);
         $reserva->setDate($_POST['fecha']);
         $reserva->setNumber($_POST['NumeroPersonas']);
         $reserva->setType($_POST['reservaTipo']);
         $reserva->setKartType($_POST['coche']);
-        $reservasDAO->update($reserva,$reservas_upd);
+        $reservasDAO->update($reserva);
         header("Loaction: ".$_SERVER['PHP_SELF']."?option=reservasCliente");
 
     }else{
@@ -59,17 +58,7 @@ if($_POST){
 
         if($action=="create" || $action=="update"){
             ?>
-    <!--
-            <script src="../resources/js/tinymce/tinymce.min.js"></script>
-            <script src="../resources/js/loadtiny.js"></script>
-            <form action="#" method="POST">
-                Titulo:<input name="title" type="text" value="<?php echo $promo!=null ? $promo->getTitle() : ''; ?>"><br>
-                Contenido:<textarea name="content"><?php echo $promo!=null ? $promo->getContent() : ''; ?></textarea>
-                <input type="hidden" name="id" value="<?php echo $promo!=null ? $promo->getId() : ''; ?>">
-                <input type="submit" value="Enviar">
-            </form>
 
-            -->
 <h1>RESERVAS</h1>
 
 
@@ -87,7 +76,6 @@ if($_POST){
     <br/>
     Numero Personas <input type="text" name="NumeroPersonas" max="10"></br>
     Fecha y hora <input type="datetime-local" name="fecha"></br>
-    Email <input type="email" name="email"></br></br>
 
     <select name="coche">
         <option value="1">honda</option>
@@ -114,6 +102,9 @@ if($_POST){
 
 
         echo "<a href='".$_SERVER['PHP_SELF']."?option=reservasCliente&action=create'>Crear Reserva</a>";
+
+
+
         if($listaReservas){
             echo "<table border='1'>
                 <tr>
@@ -122,22 +113,25 @@ if($_POST){
                     <td>date</td>
                     <td>number</td>
                     <td>type</td>
-                   <td>kart_type</td>
-
+                    <td>kartType</td>
+                    
                 </tr>";
 
-
-            foreach($listaReservas as $reserva){
-                echo  "<tr><td>".$reserva->getId()."</td><td>"."<tr><td>".$reserva->getUser()."</td><td>".$reserva->getDate()."<tr><td>".$reserva->getNumber()."</tr></td>"."<tr><td>".$reserva->getType."</td></td>"."<tr><td>".$reserva->getKartType."</td></td>";
-             echo "<td>
-                <a href='".$_SERVER['PHP_SELF']."?option=reservasCliente&action=update&id=".$reserva->getId()."'>Actualizar</a>&nbsp;|
-                <a href='".$_SERVER['PHP_SELF']."?option=reservasCliente&action=delete&id=".$reserva->getId()."'>Borrar</a>&nbsp;
+            foreach($listaReservas as $reservas){
+                echo "<tr><td>".$reservas->getId()."</td><td>".$reservas->getUser()."</td><td>".$reservas->getDate()."</td><td>".$reservas->getNumber()."</td><td>".$reservas->getType()."</td><td>".$reservas->getKartType()."</td></tr>
+              <td>
+                <a href='".$_SERVER['PHP_SELF']."?option=reservasCliente&action=update&id=".$reservas->getId()."'>Actualizar</a>&nbsp;
+                <a href='".$_SERVER['PHP_SELF']."?option=reservasCliente&action=delete&id=".$reservas->getId()."'>Borrar</a>&nbsp;
               </td></tr>";
             }
             echo "</table>";
         }else{
-            echo "<h1>No hay reservas</h1>";
+            echo "<h1>No hay Reservas</h1>";
         }
+
+
+
+
     }
 
     ?>

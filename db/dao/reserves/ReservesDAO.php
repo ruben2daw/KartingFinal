@@ -36,7 +36,17 @@ class ReservesDAO
         return $reserve;
 
     }
+    public function getAllofUser($id)
+    {
 
+        $ds = new DataSource();
+        $sql = sprintf("SELECT * from %s where id=$id", self::_TABLE);
+        $reserve = $ds->fetchAllToClass($sql, self::_CLASS);
+        $ds->close();
+
+        return $reserve;
+
+    }
 
     //Muestra ficheros dentro de directorio
     public function showList($userId)
@@ -109,24 +119,18 @@ class ReservesDAO
     }
 
 
+    /**
+     * @param $id
+     * @return bool
+     * const USER = "user";
+    const DATE = "date";
+    const NUMBER = "number";
+    const TYPE = "type";
+    const KART_TYPE = "kart_type";
+     */
 
 
 
-
-    public function getListNameUsersById($id){
-
-        $ds = new DataSource();
-        $sql = "SELECT r.role from users u ,user_roles r where u.role=r.id and u.login=?";
-        $params = array($login);
-        $role = $ds->fetch($sql,$params)[0];
-        $ds->close();
-
-        if($role=="admin")
-            return true;
-        else
-            return false;
-
-    }
 
 
     /**
@@ -160,6 +164,9 @@ class ReservesDAO
 
         return $result;
     }
+
+
+
 
 
     public function update($tableName)
