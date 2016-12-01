@@ -13,7 +13,7 @@ class ReservesTypeDAO
     const _CLASS = "ReserveType";
     const _TABLE = "reserve_type";
     const ID = "id";
-    const DESC = "desc";
+    const DESC = "description";
 
 
 

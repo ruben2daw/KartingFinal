@@ -82,6 +82,8 @@ class DataSource{
     
         $stmt = $this->connection->prepare($sql);
         $res=$stmt->execute($values);
+        var_dump($values);
+
         $err=$stmt->errorInfo();
         print_r($err);
         return $res;

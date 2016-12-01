@@ -83,19 +83,18 @@ if($_POST){
 
             $id=$_GET['id'];
             $reservasDAO = new ReservesDAO();
-            $userDAO->delete($id);
+            $reservasDAO->delete($id);
 
             header("Location: ".$_SERVER['PHP_SELF']."?option=reservas");
         }
 
        $kartsTypeDAO= new KartsTypeDAO();
        $listaKartsTypeForm= $kartsTypeDAO->getAll();
-//var_dump($listaKartsTypeForm);
 
 
        $reservasTypeDAO= new ReservesTypeDAO();
        $listaReservasTypeForm = $reservasTypeDAO->getAll();
-
+       // var_dump($listaReservasTypeForm);
 
         $userDAO= new UserDAO();
         $listaUsersForm = $userDAO->getAll();
@@ -137,7 +136,7 @@ if($_POST){
                    // var_dump($listaKartsTypeForm);
                     foreach ($listaKartsTypeForm as $kartType) {
 
-                        echo '<option value="' . $kartType->getId() . '">' . $kartType->getDesc() . '</option>';
+                        echo '<option value="' . $kartType->getId() . '">' . $kartType->getType() . '</option>';
 
                     }
 

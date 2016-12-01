@@ -10,7 +10,7 @@ class ReserveType
 {
 
     private $id;
-    private $descripcion;
+    private $description;
 
     /**
      * ReserveType constructor.
@@ -38,17 +38,17 @@ class ReserveType
     /**
      * @return mixed
      */
-    public function getDescripcion()
+    public function getDescription()
     {
-        return $this->descripcion;
+        return $this->description;
     }
 
     /**
-     * @param mixed $descripcion
+     * @param mixed $description
      */
-    public function setDescripcion($descripcion)
+    public function setDescription($description)
     {
-        $this->descripcion = $descripcion;
+        $this->description = $description;
     }
 
 

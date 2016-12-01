@@ -137,29 +137,28 @@ class ReservesDAO
      * CRUD
      */
 
-    public function insert($tableName)
-    {
 
+
+    public function insert($reserve){
         $ds = new DataSource();
 
-        $sql = sprintf("insert into %s (%s,%s,%s, %s, %s) 
-                 values ( 
-                    :user,
-                    :date,
-                    :number,
-                    :type,
-                    :kart_type                                                                            
-                     )", self::_TABLE, self::USER, self::DATE, self::NUMBER, self::TYPE, self::KART_TYPE);
+        $sql = "insert into reserves (user,date,number,type, kart_type)
+                    values (
+                        :user,
+                        :date,
+                        :number,
+                        :type,
+                        :kart_type)";
 
         $params = array(
-            ":user" => $tableName->getUser(),
-            ":date" => $tableName->getDate(),
-            ":number" => $tableName->getNumber(),
-            ":type" => $tableName->getType(),
-            ":kart_type " => $tableName->getKartType()
+            ":user" => $reserve->getUser(),
+            ":date" => $reserve->getDate(),
+            ":number" => $reserve->getNumber(),
+            ":type" => $reserve->getType(),
+            ":kart_type" => $reserve->getKartType()
         );
 
-        $result = $ds->execute($sql, $params);
+        $result = $ds->execute($sql,$params);
         $ds->close();
 
         return $result;
@@ -167,36 +166,31 @@ class ReservesDAO
 
 
 
-
-
-    public function update($tableName)
-    {
-
+    public function update($reserve){
         $ds = new DataSource();
 
-        $sql = sprintf("update %s set 
-                    user=:user,
-                    date=:date,
-                    number=:number,
-                    type=:type,
-                    kart_type=:kart_type    
-                 where id=:id", self::_TABLE);
+        $sql = "update reserves set 
+                     user = :user,
+                     date = :date,
+                     number = :number,
+                     type = :type,
+                     kart_type =:kart_type
+                    where id=:id";
 
         $params = array(
-            ":user" => $tableName->getUser(),
-            ":date" => $tableName->getDate(),
-            ":number" => $tableName->getNumber(),
-            ":type" => $tableName->getType(),
-            ":kart_type " => $tableName->getKartType()
+            ":user" => $reserve->getUser(),
+            ":date" => $reserve->getDate(),
+            ":number" => $reserve->getNumber(),
+            ":type" => $reserve->getType(),
+            ":kart_type" => $reserve->getKartType(),
+            ":id" => $reserve->getId()
         );
 
-
-        $result = $ds->execute($sql, $params);
+        $result = $ds->execute($sql,$params);
         $ds->close();
 
         return $result;
     }
-
 
 
     public function delete($id)
