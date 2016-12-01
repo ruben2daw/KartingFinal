@@ -14,7 +14,7 @@ class KartsTypeDAO
 
     const ID = "id";
     const TYPE = "type";
-    const DESC = "desc";
+    const DESC = "description";
     const IMG_PATH="img_path";
 
 
@@ -48,6 +48,25 @@ class KartsTypeDAO
 
     }
 
+    public function getKartIdType($id = -1){
+        $ds = new DataSource();
+        $sql = "SELECT id, type from kart_type";
+        $params = array();
+        $kart = $ds->fetchAll($sql, $params);
+        $ds->close();
+        $select="";
+        for($i=0; $i<count($kart); $i++){
+            if($id == $i+1){
+                $select.="<option value='".$kart[$i][0]."' selected>".$kart[$i][1]."</option>";
+            }else{
+                $select.="<option value='".$kart[$i][0]."'>".$kart[$i][1]."</option>";
+            }
+        }
+
+        return $select;
+    }
+
+
 
     /**
      * CRUD
@@ -59,9 +78,9 @@ class KartsTypeDAO
         $ds = new DataSource();
 
         $sql = sprintf("insert into %s (%s,%s, %s) 
-                 values ( 
+                 values (
                     :type,
-                    :desc,
+                    :desc,                    
                     :img_path
                     
                   

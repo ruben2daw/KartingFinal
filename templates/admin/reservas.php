@@ -90,6 +90,8 @@ if($_POST){
 
        $kartsTypeDAO= new KartsTypeDAO();
        $listaKartsTypeForm= $kartsTypeDAO->getAll();
+//var_dump($listaKartsTypeForm);
+
 
        $reservasTypeDAO= new ReservesTypeDAO();
        $listaReservasTypeForm = $reservasTypeDAO->getAll();
@@ -132,7 +134,7 @@ if($_POST){
                 <select name="kart_type">
                     <?php
 
-                    //var_dump($listaKartsTypeForm);
+                   // var_dump($listaKartsTypeForm);
                     foreach ($listaKartsTypeForm as $kartType) {
 
                         echo '<option value="' . $kartType->getId() . '">' . $kartType->getDesc() . '</option>';
@@ -144,9 +146,20 @@ if($_POST){
 
 
                 tipo reserva:
-               <input name="tipo_reserva" type="number" value="<?php echo $reservas!=null ? $reservas->getNumber() : ''; ?>"><br>
 
 
+                <select name="tipo_reserva">
+                    <?php
+
+
+                    foreach ($listaReservasTypeForm as $reservaType) {
+
+                        echo '<option value="' . $reservaType->getId() . '">' . $reservaType->getDescription() . '</option>';
+
+                    }
+
+                    ?>
+                </select><br>
 
 
                 <input type="hidden" name="id" value="<?php echo $reservas!=null ? $reservas->getId() : ''; ?>">
@@ -158,19 +171,8 @@ if($_POST){
 
         /**
          *  tipo reserva:
+        <input name="tipo_reserva" type="number" value="<?php echo $reservas!=null ? $reservas->getNumber() : ''; ?>"><br>
 
-        <select name="tipo_reserva">
-        <?php
-
-
-        foreach ($listaReservasTypeForm as $reservaType) {
-
-        echo '<option value="' . $reservaType->getId() . '">' . $reservaType->getDescripcion() . '</option>';
-
-        }
-
-        ?>
-        </select><br>
          */
 
 
