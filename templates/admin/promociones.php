@@ -80,8 +80,8 @@ if($_POST){
            <form action="#" method="POST">
                from:<input name="from" type="datetime-local" value="<?php echo $promo!=null ? $promo->getFrom() : ''; ?>"><br>
                 to:<input name="to" type="datetime-local" value="<?php echo $promo!=null ? $promo->getTo() : ''; ?>"><br>
-                contenido:<text name="content"><?php echo $promo!=null ? $promo->getText() : ''; ?></text><br>
-                ruta imagen:<input name="imagen" type="image" value="<?php echo $promo!=null ? $promo->getImg() : ''; ?>"><br>
+                contenido:<textarea name="content"><?php echo $promo!=null ? $promo->getText() : ''; ?></textarea><br>
+                ruta imagen:<input name="imagen" type="file" value="<?php echo $promo!=null ? $promo->getImg() : ''; ?>"><br>
                 <input type="hidden" name="id" value="<?php echo $promo!=null ? $promo->getId() : ''; ?>">
                 <input type="submit" value="Enviar">
             </form>

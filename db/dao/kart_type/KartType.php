@@ -13,7 +13,7 @@ class KartType
         return "id" . $this->id . " 
         </br> tipo es " . $this->type . "
          </br> descripcion es " . $this->description . "         
-        </br> ruta <img src=".$this->img_path."/>"  ;
+        </br> ruta <img src='".$this->img_path."'/>"  ;
     }
 
     public function getImgPath()

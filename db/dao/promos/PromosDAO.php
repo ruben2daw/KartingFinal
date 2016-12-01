@@ -15,8 +15,8 @@ class PromosDAO
 
     const TEXT = "text";
     const IMG = "img";
-    const VALID_FROM = "from";
-    const VALID_TO = "to";
+    const VALID_FROM = "from_date";
+    const VALID_TO = "to_date";
 
 
     /**

@@ -11,9 +11,23 @@ class Promo
     private $id;
     private $text;
     private $img;
-    private $from;
-    private $to;
+    private $from_date;
+    private $to_date;
 
+    function __toString(){
+        $contingut =" 
+        <ul>
+            <li>Texto:  \" . $this->text . \"</li>
+            <li>Imagen: \" . $this->img . \"</li>
+            <li>De: \" . $this->from_date . \" </li>
+            <li>To: \" . $this->to_date . </li >
+
+        <ul>";
+
+        return $contingut;
+
+
+    }
     /**
      * Promo constructor.
      */
@@ -74,15 +88,15 @@ class Promo
      */
     public function getFrom()
     {
-        return $this->from;
+        return $this->from_date;
     }
 
     /**
      * @param mixed $from
      */
-    public function setFrom($from)
+    public function setFrom($from_date)
     {
-        $this->from = $from;
+        $this->from_date = $from_date;
     }
 
     /**
@@ -90,15 +104,15 @@ class Promo
      */
     public function getTo()
     {
-        return $this->to;
+        return $this->to_date;
     }
 
     /**
      * @param mixed $to
      */
-    public function setTo($to)
+    public function setTo($to_date)
     {
-        $this->to = $to;
+        $this->to_date = $to_date;
     }
 
 
