@@ -8,6 +8,13 @@ class KartType
     private $type;
     private $img_path;
 
+    function __toString()
+    {
+        return "id" . $this->id . " 
+        </br> tipo es " . $this->type . "
+         </br> descripcion es " . $this->description . "         
+        </br> ruta <img src=".$this->img_path."/>"  ;
+    }
 
     public function getImgPath()
     {
