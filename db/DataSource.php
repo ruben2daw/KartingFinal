@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class DataSource
+ */
 class DataSource{
     
     private $connection;
