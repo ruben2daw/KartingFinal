@@ -57,7 +57,7 @@ if($_POST){
     <?php
     if(isset($_GET['action'])){
         $action=$_GET['action'];
-
+        $promo=null;
         if($action=="update"){
 
             $id=$_GET['id'];

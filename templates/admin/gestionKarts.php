@@ -32,7 +32,7 @@ if($_POST){
 
         $kartsType = new KartType();
         $kartsType->setType($_POST['type']);
-        $kartsType->setDesc($_POST['desc']);
+        $kartsType->setDescription($_POST['desc']);
         $kartsType->setImgPath($_POST['img_path']);
 
         $kartsTypeDAO=new KartsTypeDAO();
@@ -81,7 +81,7 @@ if($_POST){
 
             <form action="#" method="POST">
                 Tipo:<input name="type" type="text" value="<?php echo $kartsType!=null ? $kartsType->getType() : ''; ?>"><br>
-                Descripción:<input name="desc" type="text" value="<?php echo $kartsType!=null ? $kartsType->getDesc() : ''; ?>"><br>
+                Descripción:<input name="desc" type="text" value="<?php echo $kartsType!=null ? $kartsType->getDescription() : ''; ?>"><br>
                 Dirección imagen:<input name="img_path" type="text" value="<?php echo $kartsType!=null ? $kartsType->getImgPath() : ''; ?>"><br>
 
                 <input type="hidden" name="id" value="<?php echo $kartsType!=null ? $kartsType->getId() : ''; ?>">
@@ -108,7 +108,7 @@ if($_POST){
                 </tr>";
 
             foreach($listKart as $kartsType){
-                echo "<tr><td>".$kartsType->getType()."</td><td>".$kartsType->getDesc()."</td><td>".$kartsType->getImgPath()."</td></tr>
+                echo "<tr><td>".$kartsType->getType()."</td><td>".$kartsType->getDescription()."</td><td>".$kartsType->getImgPath()."</td></tr>
               <td>
                 <a href='".$_SERVER['PHP_SELF']."?option=gestionKarts&action=update&id=".$kartsType->getId()."'>Actualizar</a>&nbsp;|
                 <a href='".$_SERVER['PHP_SELF']."?option=gestionKarts&action=delete&id=".$kartsType->getId()."'>Borrar</a>&nbsp;

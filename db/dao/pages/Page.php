@@ -5,7 +5,7 @@ class Page {
     private $id;
     private $page;
     private $content;
-    private $desc;
+    private $description;
     
     
     function getId(){
@@ -23,7 +23,7 @@ class Page {
     }
     
     function getDescription(){
-        return $this->desc;       
+        return $this->description;
     }
     
    
@@ -43,7 +43,7 @@ class Page {
     }
     
     function setDescription($desc){
-        $this->desc = $desc;       
+        $this->description = $desc;
     }
     
  

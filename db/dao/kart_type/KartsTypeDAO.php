@@ -88,7 +88,7 @@ class KartsTypeDAO
 
         $params = array(
             ":type" => $tableName->getType(),
-            ":desc" => $tableName->getDesc(),
+            ":desc" => $tableName->getDescription(),
             ":img_path" => $tableName->getImgPath()
         );
 
@@ -119,7 +119,7 @@ class KartsTypeDAO
 
         $params = array(
             ":type" => $tableName->getType(),
-            ":desc" => $tableName->getDesc(),
+            ":desc" => $tableName->getDescription(),
             ":img_path" => $tableName->getImgPath(),
             ":id" => $tableName->getId()
         );

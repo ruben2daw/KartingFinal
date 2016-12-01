@@ -19,12 +19,12 @@ class KartType
         $this->img_path = $img_path;
     }
 
-    public function getDesc()
+    public function getDescription()
     {
         return $this->description;
     }
 
-    public function setDesc($desc)
+    public function setDescription($desc)
     {
         $this->description = $desc;
     }
