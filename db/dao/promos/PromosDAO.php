@@ -82,23 +82,23 @@ class PromosDAO
     }
 
 
-    public function update($tableName){
+    public function update($promo){
 
         $ds = new DataSource();
 
         $sql = sprintf("update %s set 
                     text=:text,
                     img=:img,
-                    from=:from,
-                    to=:to   
+                    from_date=:from,
+                    to_date=:to   
                  where id=:id", self::_TABLE);
 
         $params = array(
-            ":text" => $tableName->getText(),
-            ":img" => $tableName->getImg(),
-            ":from" => $tableName->getFrom(),
-            ":to" => $tableName->getTo(),
-            ":id" => $tableName->getId()
+            ":text" => $promo->getText(),
+            ":img" => $promo->getImg(),
+            ":from" => $promo->getFrom(),
+            ":to" => $promo->getTo(),
+            ":id" => $promo->getId()
         );
 
 
