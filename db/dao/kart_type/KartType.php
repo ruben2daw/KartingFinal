@@ -10,10 +10,10 @@ class KartType
 
     function __toString()
     {
-        return "id" . $this->id . " 
-        </br> tipo es " . $this->type . "
-         </br> descripcion es " . $this->description . "         
-        </br> ruta <img src='".$this->img_path."'/>"  ;
+        return "Id del kart: " . $this->id . " 
+        </br> Tipo de kart: " . $this->type . "
+        </br> Descripción: " . $this->description . "         
+        </br><img src='".$this->img_path."'/>"."</br>"  ;
     }
 
     public function getImgPath()

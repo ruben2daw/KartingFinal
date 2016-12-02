@@ -18,7 +18,7 @@ class Promo
         $contingut =" 
         <ul>
             <li>Texto:  \" . $this->text . \"</li>
-            <li>Imagen: \" . $this->img . \"</li>
+            <li>Imagen: <img src='\" . $this->img . \"></img>' </li>
             <li>De: \" . $this->from_date . \" </li>
             <li>To: \" . $this->to_date . </li >
 
