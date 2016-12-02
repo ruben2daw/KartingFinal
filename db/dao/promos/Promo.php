@@ -17,10 +17,10 @@ class Promo
     function __toString(){
         $contingut =" 
         <ul>
-            <li>Texto:  \" . $this->text . \"</li>
-            <li>Imagen: <img src='\" . $this->img . \"></img>' </li>
+            <h2>   $this->text  </h2>
+              </br><img src='$this->img'/>\"  ;
             <li>De: \" . $this->from_date . \" </li>
-            <li>To: \" . $this->to_date . </li >
+            <li>Hasta: \" . $this->to_date . </li >
 
         <ul>";
 

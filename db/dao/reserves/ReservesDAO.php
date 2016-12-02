@@ -36,11 +36,11 @@ class ReservesDAO
         return $reserve;
 
     }
-    public function getAllofUser($id)
+    public function getAllofUser($id_user)
     {
 
         $ds = new DataSource();
-        $sql = sprintf("SELECT * from %s where id=$id", self::_TABLE);
+        $sql = sprintf("SELECT * from %s where user=3", self::_TABLE, $id_user);
         $reserve = $ds->fetchAllToClass($sql, self::_CLASS);
         $ds->close();
 

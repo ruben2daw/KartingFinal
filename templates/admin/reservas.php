@@ -31,7 +31,6 @@ if($_POST){
             echo $error;
         }else{
             $msg="Usuario registrado correctamente";
-            header("Loaction: ".$_SERVER['PHP_SELF']."?option=reservas");
 
         }
 
@@ -60,8 +59,8 @@ if($_POST){
 
 
     }
+    header("Location: ".$_SERVER['PHP_SELF']."?option=reservas");
 
-    // header("Location: ".$_SERVER['PHP_SELF']."?option=gestionUsuarios");
 }
 
 ?>

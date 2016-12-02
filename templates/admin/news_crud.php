@@ -67,7 +67,7 @@ if(isset($_GET['action'])){
     
     echo "<a href='".$_SERVER['PHP_SELF']."?option=news&action=create'>Crear noticia</a>";
     if($listNews){
-        echo "<table border='1'>
+        echo "<table  class=\"table\" border='1'>
                 <tr>
                     <td>Título</td>
                     <td>Contenido</td>

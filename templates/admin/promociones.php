@@ -77,6 +77,7 @@ if($_POST){
         if($action=="create" || $action=="update"){
             ?>
 
+
            <form action="#" method="POST">
                from:<input name="from" type="datetime-local" value="<?php echo $promo!=null ? $promo->getFrom() : ''; ?>"><br>
                 to:<input name="to" type="datetime-local" value="<?php echo $promo!=null ? $promo->getTo() : ''; ?>"><br>
