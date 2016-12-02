@@ -8,8 +8,24 @@
      */
 
 
-        foreach ($kartsList as $kart){
-            echo $kart;
-        }
+
+function buildTable($kartsList){
+    $html = '<table  class="table">';
+    // header row
+    $html .= '<tr>';
+
+    foreach($kartsList as $kart){
+        $html .= '<th>' .  $kart . '</th>';
+    }
+    $html .= '</tr>';
+    $html .= '</table>';
+
+    return $html;
+}
+
+
+echo buildTable($kartsList);
     ?>
+
+
 </section>

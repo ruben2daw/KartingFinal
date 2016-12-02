@@ -114,13 +114,14 @@ if($_POST){
 
 
 
-        echo "<a href='".$_SERVER['PHP_SELF']."?option=tandas&action=create'>Crear Tanda</a>";
+        echo "<a href='".$_SERVER['PHP_SELF']."?option=tandas&action=create' class='btn btn-success'>Crear Tanda</a>";
+
         if($listaSessionForm){
-            echo "<table border='1'>
+            echo "<table class=\"table\" border='1'>
                 <tr>
-                    <td>Nombre</td>
-                    <td>Fecha</td>
-                    <td>Tipo</td>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
                     
                 </tr>";
 
@@ -128,10 +129,10 @@ if($_POST){
 
                 echo "<tr><td>".$sesion->getName()."</td><td>".$sesion->getDate()."</td><td>".$sesion->getType()."</td></tr>
               <td>
-                <a href='".$_SERVER['PHP_SELF']."?option=tandas&action=update&id=".$sesion->getId()."'>Actualizar</a>&nbsp;|
-                <a href='".$_SERVER['PHP_SELF']."?option=tandas&action=delete&id=".$sesion->getId()."'>Borrar</a>&nbsp;
-                <a href='".$_SERVER['PHP_SELF']."?option=tandas&action=asignar&id=".$sesion->getId()."'>Asignar</a>&nbsp;
-                <a href='".$_SERVER['PHP_SELF']."?option=tandas&action=go&id=".$sesion->getId()."'>Go</a>&nbsp;
+                <a href='".$_SERVER['PHP_SELF']."?option=tandas&action=update&id=".$sesion->getId()."' class='btn btn-warning btn-xs'>Actualizar</a>&nbsp;|
+                <a href='".$_SERVER['PHP_SELF']."?option=tandas&action=delete&id=".$sesion->getId()."' class='btn btn-danger btn-xs'>Borrar</a>&nbsp;
+                <a href='".$_SERVER['PHP_SELF']."?option=tandas&action=asignar&id=".$sesion->getId()."' class='btn btn-info btn-xs'>Asignar</a>&nbsp;
+                <a href='".$_SERVER['PHP_SELF']."?option=tandas&action=go&id=".$sesion->getId()."' class='btn btn-success btn-xs'>Go</a>&nbsp;
               </td></tr>";
             }
             echo "</table>";

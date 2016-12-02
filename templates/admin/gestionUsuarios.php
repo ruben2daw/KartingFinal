@@ -107,7 +107,7 @@ if($_POST){
 
         echo "<a href='".$_SERVER['PHP_SELF']."?option=gestionUsuarios&action=create'>Crear Usuario</a>";
         if($listUser){
-            echo "<table border='1'>
+            echo "<table  class=\"table\" border='1'>
                 <tr>
                     <td>login</td>
                     <td>password</td>
@@ -119,7 +119,7 @@ if($_POST){
                 </tr>";
 
             foreach($listUser as $users){
-                echo "<tr><td>".$users->getId()."</td><td>".$users->getLogin()."</td><td>".$users->getPassword()."</td><td>".$users->getEmail()."</td><td>".$users->getFirstname()."</td><td>".$users->getLastname()."</td><td>".$users->getRole()."</td></tr>
+                echo "<tr><td>".$users->getLogin()."</td><td>".$users->getPassword()."</td><td>".$users->getEmail()."</td><td>".$users->getFirstname()."</td><td>".$users->getLastname()."</td><td>".$users->getRole()."</td></tr>
               <td>
                 <a href='".$_SERVER['PHP_SELF']."?option=gestionUsuarios&action=update&id=".$users->getId()."'>Actualizar</a>&nbsp;|
                 <a href='".$_SERVER['PHP_SELF']."?option=gestionUsuarios&action=delete&id=".$users->getId()."'>Borrar</a>&nbsp;

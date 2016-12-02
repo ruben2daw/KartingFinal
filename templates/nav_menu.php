@@ -1,4 +1,4 @@
-<div class="row">
+<div class="navbar navbar-default">
     <nav class="col-md-12">
         <ul>
                 <li>
