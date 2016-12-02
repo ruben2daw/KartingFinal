@@ -57,7 +57,7 @@ class SessionsDAO{
     public function insert($session){
         
         $ds = new DataSource();
-        
+
         $sql = "insert into session (name,date,type) 
                  values ( 
                     :name,
@@ -80,11 +80,11 @@ class SessionsDAO{
     public function update($session){
         
         $ds = new DataSource();
-        
+
         $sql = "update session set 
                 name = :name,
                 date=:date, 
-                type=:type,
+                type=:type
                  where id=:id";
                 
         $params = array(
@@ -99,7 +99,8 @@ class SessionsDAO{
         return $result; 
         
     }
-    
+
+
     
     public function delete($id){
         

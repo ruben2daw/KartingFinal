@@ -47,7 +47,7 @@ if($_POST){
 
     }
 
-    // header("Location: ".$_SERVER['PHP_SELF']."?option=gestionKarts");
+     header("Location: ".$_SERVER['PHP_SELF']."?option=gestionKarts");
 }
 
 ?>

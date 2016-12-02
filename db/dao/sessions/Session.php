@@ -7,41 +7,71 @@ class Session{
     private $date;
     private $type;
 
-    
-    function getId(){
-        return $this->id;    
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
     }
-    
-    function getName(){
-        return $this->name;    
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
-    
-    function getDate(){
-        return $this->date;    
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
     }
-    
-    function getType(){
-        return $this->type;    
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
     }
-    
-   
-    
-    
-    function setId($id){
-        $this->id = $id;    
+
+    /**
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
-    
-    function setName($name){
-        $this->name = $name;    
+
+    /**
+     * @param mixed $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
     }
-    
-    function setDate($date){
-        $this->date = $date;    
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
     }
-    
-    function setLastName($type){
-        $this->type = $type;    
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
     }
+
+
     
   
 }
