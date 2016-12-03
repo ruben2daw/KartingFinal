@@ -81,8 +81,9 @@ if($_POST){
 
 
 
-        //$sesionTypeDAO= new SessionTypeDAO();
-       // $listaSesionesTypeForm= $sesionTypeDAO->getAll();
+        $sesionTypeDAO= new SessionTypeDAO();
+       $listaSesionesTypeForm= $sesionTypeDAO->getAll();
+
 
         if($action=="create" || $action=="update"){
             ?>
@@ -92,12 +93,17 @@ if($_POST){
             <form action="#" method="POST">
                 Nombre:<input name="nombre" type="text" value="<?php echo $sesion!=null ? $sesion->getName() : ''; ?>"><br>
                 Fecha:<input name="fecha" type="datetime-local" value="<?php echo $sesion!=null ? $sesion->getDate() : ''; ?>"><br>
+                Tipo:
+                <select name="tipo">
+                    <?php
 
+                    foreach ($listaSesionesTypeForm  as $sesionType) {
+                        echo '<option value="' . $sesionType->getId() . '">' .$sesionType->getType(). '</option>';
 
+                    }
 
-
-                Tipo:<input name="tipo" type="text" value="<?php echo $sesion!=null ? $sesion->getType() : ''; ?>"><br>
-
+                    ?>
+                </select><br>
 
                 <input type="hidden" name="id" value="<?php echo $sesion!=null ? $sesion->getId() : ''; ?>">
                 <input type="submit" value="Enviar">

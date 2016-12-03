@@ -53,7 +53,7 @@ if($_POST){
 
     }
 
-   // header("Location: ".$_SERVER['PHP_SELF']."?option=gestionUsuarios");
+    header("Location: ".$_SERVER['PHP_SELF']."?option=gestionUsuarios");
 }
 
 ?>
@@ -79,6 +79,10 @@ if($_POST){
             header("Location: ".$_SERVER['PHP_SELF']."?option=gestionUsuarios");
         }
 
+        $userRolesDAO = new UserRolesDAO;
+
+        $listaUserRolesForm = $userRolesDAO->getAll();
+
         if($action=="create" || $action=="update"){
             ?>
 
@@ -86,11 +90,23 @@ if($_POST){
 
             <form action="#" method="POST">
                 login:<input name="login" type="text" value="<?php echo $users!=null ? $users->getLogin() : ''; ?>"><br>
-                password:<input name="password" type="text" value="<?php echo $users!=null ? $users->getPassword() : ''; ?>"><br>
+                password:<input name="password" type="password" value="<?php echo $users!=null ? $users->getPassword() : ''; ?>"><br>
                 email:<input name="email" type="text" value="<?php echo $users!=null ? $users->getEmail() : ''; ?>"><br>
                 firstname:<input name="firstname" type="text" value="<?php echo $users!=null ? $users->getFirstname() : ''; ?>"><br>
                 lastName:<input name="lastname" type="text" value="<?php echo $users!=null ? $users->getLastname() : ''; ?>"><br>
-                role:<input name="role" type="text" value="<?php echo $users!=null ? $users->getRole() : ''; ?>"><br>
+
+                Role:
+                <select name="role">
+                    <?php
+
+                    foreach ($listaUserRolesForm  as $userRole) {
+
+                        echo '<option value="' . $userRole->getId() . '">' . $userRole->getRole(). '</option>';
+
+                    }
+
+                    ?>
+                </select><br>
 
                 <input type="hidden" name="id" value="<?php echo $users!=null ? $users->getId() : ''; ?>">
                 <input type="submit" value="Enviar">

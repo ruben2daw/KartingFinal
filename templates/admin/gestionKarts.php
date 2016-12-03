@@ -74,14 +74,33 @@ if($_POST){
             header("Location: ".$_SERVER['PHP_SELF']."?option=gestionKarts");
         }
 
+
+        $kartsTypeDAO=new KartsTypeDAO();
+        $listaKartTypeForm = $kartsTypeDAO->getAll();
+
+
         if($action=="create" || $action=="update"){
             ?>
 
 
 
             <form action="#" method="POST">
-                Tipo:<input name="type" type="text" value="<?php echo $kartsType!=null ? $kartsType->getType() : ''; ?>"><br>
-                Descripción:<input name="desc" type="text" value="<?php echo $kartsType!=null ? $kartsType->getDescription() : ''; ?>"><br>
+                Tipo:
+                <select name="type">
+                    <?php
+
+                    foreach ($listaKartTypeForm  as $kartType) {
+
+                        echo '<option value="' . $kartType->getId() . '">' .$kartType->getType(). '</option>';
+
+                    }
+
+                    ?>
+                </select><br>
+
+
+
+                   Descripción:<input name="desc" type="text" value="<?php echo $kartsType!=null ? $kartsType->getDescription() : ''; ?>"><br>
                 Dirección imagen:<input name="img_path" type="text" value="<?php echo $kartsType!=null ? $kartsType->getImgPath() : ''; ?>"><br>
 
                 <input type="hidden" name="id" value="<?php echo $kartsType!=null ? $kartsType->getId() : ''; ?>">

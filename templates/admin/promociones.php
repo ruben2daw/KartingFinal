@@ -111,7 +111,7 @@ if($_POST){
                 </tr>";
 
             foreach($listaPromo as $promo){
-                echo "<tr><td>".$promo->getId()."</td><td>".$promo->getFrom()."</td><td>".$promo->getTo()."</td><td>".$promo->getImg()."</td></tr>
+                echo "<tr><td>".$promo->getText()."</td><td>".$promo->getFrom()."</td><td>".$promo->getTo()."</td><td>".$promo->getImg()."</td></tr>
               <td>
                 <a href='".$_SERVER['PHP_SELF']."?option=promociones&action=update&id=".$promo->getId()."'>Actualizar</a>&nbsp;|
                 <a href='".$_SERVER['PHP_SELF']."?option=promociones&action=delete&id=".$promo->getId()."'>Borrar</a>&nbsp;
