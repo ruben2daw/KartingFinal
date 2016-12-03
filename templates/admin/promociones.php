@@ -101,7 +101,7 @@ if($_POST){
 
         echo "<a href='".$_SERVER['PHP_SELF']."?option=promociones&action=create'>Crear Promociones</a>";
         if($listaPromo){
-            echo "<table border='1'>
+            echo "<table class=\"table\" border='1'>
                 <tr>
                     <td>Texto</td>
                     <td>Desde</td>

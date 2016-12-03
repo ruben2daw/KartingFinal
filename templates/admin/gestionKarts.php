@@ -118,7 +118,7 @@ if($_POST){
 
         echo "<a href='".$_SERVER['PHP_SELF']."?option=gestionKarts&action=create'>Crear Kart</a>";
         if($listKart){
-            echo "<table border='1'>
+            echo "<table class=\"table\" border='1'>
                 <tr>
                     <td>Tipo</td>
                     <td>Descripción</td>

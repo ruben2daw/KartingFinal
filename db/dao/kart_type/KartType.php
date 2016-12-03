@@ -10,8 +10,8 @@ class KartType
 
     function __toString()
     {
-        return "Id del kart: " . $this->id . " 
-        </br> Tipo de kart: " . $this->type . "
+        return "" . " 
+        </br> <h3>Tipo de kart: " . $this->type . "</h3>
         </br> Descripción: " . $this->description . "         
         </br><img src='".$this->img_path."'/>"."</br>"  ;
     }
