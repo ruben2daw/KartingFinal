@@ -40,7 +40,7 @@ class ReservesDAO
     {
 
         $ds = new DataSource();
-        $sql = sprintf("SELECT * from %s where user=3", self::_TABLE, $id_user);
+        $sql = sprintf("SELECT * from %s where user=$id_user", self::_TABLE, $id_user);
         $reserve = $ds->fetchAllToClass($sql, self::_CLASS);
         $ds->close();
 
