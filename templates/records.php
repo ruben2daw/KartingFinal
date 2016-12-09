@@ -8,5 +8,12 @@
          */
 
         echo "nuevo record";
+
+    $objeto = new SessionsLapsDAO();
+    $listaSessionLap = $objeto->getBestTimes();
+
+
     ?>
+
+
 </section>

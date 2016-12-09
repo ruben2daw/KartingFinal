@@ -7,7 +7,7 @@ include 'db/dao/sessions_users/SessionsUsersDAO.php';
 
 
 encodeWriteJSON(getLapsArray());
-//readDecodeJSON();
+readDecodeJSON();
 
 
 // Genera un tiempo aleatorio
@@ -72,7 +72,7 @@ function encodeWriteJSON($laps){
     
 
     $json=json_encode($laps, JSON_PRETTY_PRINT);
-    $fp=fopen($_GET['session'].".json","w");
+    $fp=fopen('json/'.$_GET['session'].".json","w");
     if($fp){
         fwrite($fp,$json);
         fclose($fp);
@@ -85,7 +85,7 @@ function encodeWriteJSON($laps){
 // Lee fichero y decodifica JSON
 function readDecodeJSON(){
     
-    $fp=fopen($_GET['session'].".json","r");
+    $fp=fopen('json/'.$_GET['session'].".json","r");
     if($fp){
         
         $json=fread($fp,filesize($_GET['session'].".json"));
