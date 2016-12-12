@@ -113,6 +113,44 @@ class SessionsDAO{
         return $result;
         
     }
+
+
+    public function getTandasPerUser($id_user)
+    {
+        $ds = new DataSource();
+
+        $sql = "SELECT ss.id, ss.name,ss.date, st.type 
+        From 
+        session ss
+        inner join
+		session_users su
+        on ss.id = su.session
+	
+		inner join
+		karts k
+        on su.kart = k.id
+		
+		inner join 
+		kart_type kt
+        on k.type = kt.id
+			
+        inner join 
+		session_type st
+        on (ss.type = st.id)
+	
+	    WHERE su.user=?
+	    ORDER BY ss.date;";
+
+
+
+        $params = array($id_user);
+        $queryFields = $ds->fetchAll($sql, $params);
+        $ds->close();
+
+
+        return $queryFields;
+
+    }
     
     
     

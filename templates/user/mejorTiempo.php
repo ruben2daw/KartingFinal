@@ -8,22 +8,17 @@
 
 
 
-//echo   $_SESSION['user'];
-class MejorTiempo {
-    public function bestTime()
-    {
+$id_user = $_SESSION['user']->getId();
 
-        $ds = new DataSource();
-        $sql = sprintf("SELECT kt.type, sl.time
-                       from kart_type as kt, session_laps as sl, karts as k, session_users as su, users as u where u.id=id ",
-            self::_TABLE); //EL WHERE ESTA MAL!!
-        $mejorTiempo = $ds->fetchAll($sql, self::_CLASS);
-        $ds->close();
 
-        return $mejorTiempo;
+$objeto = new SessionsLapsDAO();
+echo "Mejores tiempos";
+echo $objeto->getBestTimesPerUser($id_user, 1);
+echo $objeto->getBestTimesPerUser($id_user, 2);
+echo $objeto->getBestTimesPerUser($id_user, 3);
+echo $objeto->getBestTimesPerUser($id_user, 4);
+echo $objeto->getBestTimesPerUser($id_user, 5);
 
-    }
-}
 
 ?>
 
