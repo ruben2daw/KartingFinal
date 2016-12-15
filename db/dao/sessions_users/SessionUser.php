@@ -7,7 +7,14 @@ class SessionUser{
     private $user;
     private $kart;
 
-    
+    /**
+     * SessionUser constructor.
+     */
+    public function __construct()
+    {
+    }
+
+
     function getId(){
         return $this->id;    
     }

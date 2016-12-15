@@ -1,7 +1,9 @@
 <?php
 
 class SessionsUsersDAO{
-    
+
+
+
     public function getAll(){
         
         $ds = new DataSource();
@@ -98,6 +100,41 @@ class SessionsUsersDAO{
         
         return $result;
         
+    }
+
+
+    public function getAllUserAndKartsWhereIdSession($idSession){
+
+
+        $ds = new DataSource();
+
+
+        $subconsulta = "SELECT u.login, k.type, k.number 
+        From 
+        session_users su
+        inner join
+        users u
+        on su.user = u.id
+        inner join
+        karts k
+        on su.kart = k.id
+	    WHERE su.session=? 
+	    ORDER BY u.login asc;";
+
+
+
+        $params = array($idSession);
+        $queryFields = $ds->fetchAll($subconsulta, $params);
+        $ds->close();
+
+
+        return $queryFields;
+
+
+
+
+
+
     }
     
     

@@ -4,8 +4,7 @@ include 'lib/autoload.php';
 include 'db/dao/sessions_users/SessionUser.php';
 include 'db/dao/sessions_users/SessionsUsersDAO.php';
 
-include 'db/dao/session_laps/SessionLaps.php';
-include 'db/dao/session_laps/SessionLaps.php';
+
 
 encodeWriteJSON(getLapsArray());
 readDecodeJSON();
@@ -87,17 +86,10 @@ function encodeWriteJSON($laps){
 // Lee fichero y decodifica JSON
 function readDecodeJSON(){
 
+    $sessionLaps= new SessionLaps();
     $sessionLapsDao = new SessionsLapsDAO();
-    /**
-     * TODO: CREAR EL METODO INSERTAR EN SESSION_LAPS_DAO Y INSERTAR
-     * SESSION USER, LAPNUM, TIME
-     * $_GET['session'],++increment, time for
-     *
-     * ID TIME?????
-*/
 
-    
-    //$fp=fopen('json/'.$_GET['session'].".json","r");
+
     $fp=fopen($_GET['session'].".json","r");
 
     if($fp){
@@ -109,9 +101,14 @@ function readDecodeJSON(){
         
         $jsonKartLaps=json_decode($json);
         foreach($jsonKartLaps as $kartLaps){
-            echo "Kart:".$kartLaps->kart."<br>";
+          //  echo "Kart:".$kartLaps->kart."<br>";
             foreach($kartLaps->laps as $lap=>$time)
-                echo "Lap ".$lap." : ".$time."<br>";
+                $sessionLaps->setLapNum($lap);
+                $sessionLaps->setSessionUser($_GET['session_user']);
+                $sessionLaps->setTime($time);
+              $sessionLapsDao->insert($sessionLaps);
+
+            //echo "Lap ".$lap." : ".$time."<br>";
         }
     }
 }

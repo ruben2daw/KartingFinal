@@ -21,7 +21,7 @@ if($_POST){
         $user->setEmail($_POST['email']);
         $user->setRole($_POST['role']);
 
-        $result=$userDAO->updateForAdmin($user);
+        $result=$userDAO->update($user);
 
         if($result==false){
             $error="Ha ocurrido un error al actualizar el usuario. ";

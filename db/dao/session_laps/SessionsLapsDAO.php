@@ -179,6 +179,29 @@ class SessionsLapsDAO
         return $html;
     }
 
+
+    public function insert($sessionLaps){
+
+        $ds = new DataSource();
+
+        $sql = "insert into session_laps (session_user,lap_num,time) 
+                 values ( 
+                    :session_user,
+                    :lap_num,
+                    :time)";
+
+        $params = array(
+            ":session_user" => $sessionLaps->getSessionUser(),
+            ":lap_num" => $sessionLaps->getLapNum(),
+            ":time" => $sessionLaps->getTime()
+        );
+        $result = $ds->execute($sql,$params);
+        $ds->close();
+
+        return $result;
+
+    }
+
 }
 
 

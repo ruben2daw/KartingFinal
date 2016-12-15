@@ -142,7 +142,6 @@ class SessionsDAO{
 	    ORDER BY ss.date;";
 
 
-
         $params = array($id_user);
         $queryFields = $ds->fetchAll($sql, $params);
         $ds->close();
@@ -151,9 +150,35 @@ class SessionsDAO{
         return $queryFields;
 
     }
-    
-    
-    
+
+
+    public function getIdSessionUsers($id_session)
+    {
+        $ds = new DataSource();
+
+        $sql = "SELECT su.id 
+        From 
+        session ss
+        inner join
+		session_users su
+        on ss.id = su.session
+	    WHERE ss.id=?
+	    ;";
+
+
+        $params = array($id_session);
+        $id = $ds->fetch($sql, $params)[0];
+        $ds->close();
+
+
+        return $id;
+
+
+    }
+
+
+
+
 }
 
 

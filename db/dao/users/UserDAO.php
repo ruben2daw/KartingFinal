@@ -137,33 +137,10 @@ class UserDAO{
     }
     
     
+
+
+
     public function update($user){
-        
-        $ds = new DataSource();
-        
-        $sql = "update users set 
-                login = :login,
-                email=:email, 
-                firstname=:firstname,
-                lastname=:lastname,
-                role=:role";
-                
-        $params = array(
-                        ":login" => $user->getLogin(),
-                        ":email" => $user->getEmail(),
-                        ":firstname" => $user->getFirstName(),
-                        ":lastname" => $user->getLastName(),
-                        ":role" => $user->getRole()
-                        );
-        $result = $ds->execute($sql,$params);  
-        $ds->close();
-        
-        return $result; 
-        
-    }
-
-
-    public function updateForAdmin($user){
 
         $ds = new DataSource();
 
