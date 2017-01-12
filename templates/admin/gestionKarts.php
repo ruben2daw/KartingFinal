@@ -6,8 +6,6 @@
  * Time: 21:35
  */
 
-echo "● CRUD de la tabla karts<br>
-● Desde esta sección se podrán gestionar los karts disponibles";
 
 if($_POST){
 
@@ -116,7 +114,7 @@ if($_POST){
         $listKart=$kartsTypeDAO->getAll();
 
 
-        echo "<a href='".$_SERVER['PHP_SELF']."?option=gestionKarts&action=create'>Crear Kart</a>";
+        echo "<a href='" . $_SERVER['PHP_SELF'] . "?option=gestionKarts&action=create' class='btn btn-success'>Crear Kart</a>";
         if($listKart){
             echo "<table class=\"table\" border='1'>
                 <tr>
@@ -129,8 +127,8 @@ if($_POST){
             foreach($listKart as $kartsType){
                 echo "<tr><td>".$kartsType->getType()."</td><td>".$kartsType->getDescription()."</td><td>".$kartsType->getImgPath()."</td></tr>
               <td>
-                <a href='".$_SERVER['PHP_SELF']."?option=gestionKarts&action=update&id=".$kartsType->getId()."'>Actualizar</a>&nbsp;|
-                <a href='".$_SERVER['PHP_SELF']."?option=gestionKarts&action=delete&id=".$kartsType->getId()."'>Borrar</a>&nbsp;
+                <a href='" . $_SERVER['PHP_SELF'] . "?option=gestionKarts&action=update&id=" . $kartsType->getId() . "' class='btn btn-warning btn-xs'>Actualizar</a>&nbsp;|
+                <a href='" . $_SERVER['PHP_SELF'] . "?option=gestionKarts&action=delete&id=" . $kartsType->getId() . "' class='btn btn-danger btn-xs'>Borrar</a>&nbsp;
               </td></tr>";
             }
             echo "</table>";

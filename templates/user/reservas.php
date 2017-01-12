@@ -165,8 +165,7 @@ if($_POST){
         $listaReservas =$reservasDAO->getAllofUser($_SESSION['user']->getId());
 
 
-
-        echo "<a href='".$_SERVER['PHP_SELF']."?option=reservasCliente&action=create'>Crear Reserva</a>";
+        echo "<a href='" . $_SERVER['PHP_SELF'] . "?option=reservasCliente&action=create'  class='btn btn-success'>Crear Reserva</a>";
         if($listaReservas){
             echo "<table class=\"table\"  border='1'>
                 <tr>
@@ -182,8 +181,8 @@ if($_POST){
             foreach($listaReservas as $reservas){
                 echo "<tr><td>".$reservas->getId()."</td><td>".$reservas->getUser()."</td><td>".$reservas->getDate()."</td><td>".$reservas->getNumber()."</td><td>".$reservas->getType()."</td><td>".$reservas->getKartType()."</td></tr>
               <td>
-                <a href='".$_SERVER['PHP_SELF']."?option=reservasCliente&action=update&id=".$reservas->getId()."'>Actualizar</a>&nbsp;|
-                <a href='".$_SERVER['PHP_SELF']."?option=reservasCliente&action=delete&id=".$reservas->getId()."'>Borrar</a>&nbsp;
+                <a href='" . $_SERVER['PHP_SELF'] . "?option=reservasCliente&action=update&id=" . $reservas->getId() . "' class='btn btn-warning btn-xs'>Actualizar</a>&nbsp;|
+                <a href='" . $_SERVER['PHP_SELF'] . "?option=reservasCliente&action=delete&id=" . $reservas->getId() . "' class='btn btn-danger btn-xs'>Borrar</a>&nbsp;
               </td></tr>";
             }
             echo "</table>";

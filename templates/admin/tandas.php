@@ -136,8 +136,7 @@ if ($_POST) {
                 <tr>
                     <th>Nombre</th>
                     <th>Fecha</th>
-                    <th>Tipo</th>
-                    
+                    <th>Tipo</th>                 
                 </tr>";
 
             foreach ($listaSessionForm as $sesion) {

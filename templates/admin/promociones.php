@@ -6,7 +6,6 @@
  * Time: 21:29
  */
 
-echo "● CRUD de promociones";
 
 
 
@@ -98,8 +97,7 @@ if($_POST){
         $listaPromo= $promosDAO->getAll();
 
 
-
-        echo "<a href='".$_SERVER['PHP_SELF']."?option=promociones&action=create'>Crear Promociones</a>";
+        echo "<a href='" . $_SERVER['PHP_SELF'] . "?option=promociones&action=create' class='btn btn-success'>Crear Promociones</a>";
         if($listaPromo){
             echo "<table class=\"table\" border='1'>
                 <tr>
@@ -113,8 +111,8 @@ if($_POST){
             foreach($listaPromo as $promo){
                 echo "<tr><td>".$promo->getText()."</td><td>".$promo->getFrom()."</td><td>".$promo->getTo()."</td><td>".$promo->getImg()."</td></tr>
               <td>
-                <a href='".$_SERVER['PHP_SELF']."?option=promociones&action=update&id=".$promo->getId()."'>Actualizar</a>&nbsp;|
-                <a href='".$_SERVER['PHP_SELF']."?option=promociones&action=delete&id=".$promo->getId()."'>Borrar</a>&nbsp;
+                <a href='" . $_SERVER['PHP_SELF'] . "?option=promociones&action=update&id=" . $promo->getId() . "' class='btn btn-warning btn-xs'>Actualizar</a>&nbsp;|
+                <a href='" . $_SERVER['PHP_SELF'] . "?option=promociones&action=delete&id=" . $promo->getId() . "' class='btn btn-danger btn-xs'>Borrar</a>&nbsp;
               </td></tr>";
             }
             echo "</table>";

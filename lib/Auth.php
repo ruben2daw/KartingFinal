@@ -49,9 +49,34 @@
 		
 		return false;
 	}
-	
-	
-	/* método cierre sesión */
+
+        /**
+         * @param $login
+         * @param $pass
+         * @return bool|mixed
+         * METODO DE LOGIN PARA LA API
+         */
+
+        public function apiAuth($login, $pass)
+        {
+
+            $userDAO = new UserDAO();
+            $user = $userDAO->getByLogin($login);
+
+
+            if ($user) {
+                if (password_verify($pass, $user->getPassword())) {
+                    return $user;
+
+                } else
+                    return false;
+            }
+
+            return false;
+        }
+
+
+        /* método cierre sesión */
 	public function closeSession(){
 		
 		if(!empty($_GET['session']) && $_GET['session']=="close"){
@@ -67,21 +92,24 @@
 	
 	
 	/* comprueba si usuario está logado */
+
+        function showWelcomeMessage()
+        {
+
+            if ($this->isLogged()) {
+                echo "Bienvenido " . $_SESSION["user"]->getFirstName() . " has iniciado sesión<br>";
+                echo "<a href='" . $_SERVER['PHP_SELF'] . "?session=close'>Cerrar Sesión</a>";
+            }
+        }
+
+
+        /* muestra mensaje de bienvenida si el usuario está logado */
+
 	public function isLogged(){
 		if(isset($_SESSION["user"]))
 			return true;
 		else
 			return false;
-	}
-	
-	
-	/* muestra mensaje de bienvenida si el usuario está logado */
-	function showWelcomeMessage(){
-		
-		if($this->isLogged()){
-				echo "Bienvenido ".$_SESSION["user"]->getFirstName()." has iniciado sesión<br>";
-				echo "<a href='".$_SERVER['PHP_SELF']."?session=close'>Cerrar Sesión</a>";
-		}
 	}
 	
 }	

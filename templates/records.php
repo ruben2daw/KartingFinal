@@ -11,9 +11,7 @@
     $objeto = new SessionsLapsDAO();
 
 
-
-
-        $objeto->getBestTimesPerKart(1);
+    $objeto->getBestTimesPerKart(1);
     $objeto->getBestTimesPerKart(2);
     $objeto->getBestTimesPerKart(3);
     $objeto->getBestTimesPerKart(4);

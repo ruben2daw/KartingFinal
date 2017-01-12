@@ -6,8 +6,7 @@
  * Time: 21:38
  */
 
-echo "● Un usuario administrador podrá crear otro usuario administrador, así como actualizar
-sus datos o eliminarlo";
+
 
 if($_POST){
 
@@ -121,7 +120,7 @@ if($_POST){
         $listUser=$userDAO->getAllForAdmin();
 
 
-        echo "<a href='".$_SERVER['PHP_SELF']."?option=gestionUsuarios&action=create'>Crear Usuario</a>";
+        echo "<a href='" . $_SERVER['PHP_SELF'] . "?option=gestionUsuarios&action=create' class='btn btn-success'>Crear Usuario</a>";
         if($listUser){
             echo "<table  class=\"table\" border='1'>
                 <tr>
@@ -137,8 +136,8 @@ if($_POST){
             foreach($listUser as $users){
                 echo "<tr><td>".$users->getLogin()."</td><td>".$users->getPassword()."</td><td>".$users->getEmail()."</td><td>".$users->getFirstname()."</td><td>".$users->getLastname()."</td><td>".$users->getRole()."</td></tr>
               <td>
-                <a href='".$_SERVER['PHP_SELF']."?option=gestionUsuarios&action=update&id=".$users->getId()."'>Actualizar</a>&nbsp;|
-                <a href='".$_SERVER['PHP_SELF']."?option=gestionUsuarios&action=delete&id=".$users->getId()."'>Borrar</a>&nbsp;
+                <a href='" . $_SERVER['PHP_SELF'] . "?option=gestionUsuarios&action=update&id=" . $users->getId() . "' class='btn btn-warning btn-xs'>Actualizar</a>&nbsp;|
+                <a href='" . $_SERVER['PHP_SELF'] . "?option=gestionUsuarios&action=delete&id=" . $users->getId() . "' class='btn btn-danger btn-xs'>Borrar</a>&nbsp;
               </td></tr>";
             }
             echo "</table>";

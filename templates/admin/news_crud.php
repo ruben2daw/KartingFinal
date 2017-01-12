@@ -63,9 +63,9 @@ if(isset($_GET['action'])){
 }else{
     $newsDAO=new NewsDAO();
     $listNews=$newsDAO->getAll();
-    
-    
-    echo "<a href='".$_SERVER['PHP_SELF']."?option=news&action=create'>Crear noticia</a>";
+
+
+    echo "<a href='" . $_SERVER['PHP_SELF'] . "?option=news&action=create' ' class='btn btn-success btn-xs'>Crear noticia</a>";
     if($listNews){
         echo "<table  class=\"table\" border='1'>
                 <tr>
@@ -78,8 +78,8 @@ if(isset($_GET['action'])){
         foreach($listNews as $news){
               echo "<tr><td>".$news->getTitle()."</td><td>".$news->getContent()."</td><td>".$news->getCreated()."</td>
               <td>
-                <a href='".$_SERVER['PHP_SELF']."?option=news&action=update&id=".$news->getId()."'>Actualizar</a>&nbsp;|
-                <a href='".$_SERVER['PHP_SELF']."?option=news&action=delete&id=".$news->getId()."'>Borrar</a>&nbsp;
+                <a href='" . $_SERVER['PHP_SELF'] . "?option=news&action=update&id=" . $news->getId() . "' class='btn btn-warning btn-xs'>Actualizar</a>&nbsp;|
+                <a href='" . $_SERVER['PHP_SELF'] . "?option=news&action=delete&id=" . $news->getId() . "' class='btn btn-danger btn-xs'>Borrar</a>&nbsp;
               </td></tr>";
         }
         echo "</table>";

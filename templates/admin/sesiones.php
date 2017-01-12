@@ -133,7 +133,7 @@ if($_POST){
             }
 
 
-        echo "<a href='".$_SERVER['PHP_SELF']."?option=sesiones&action=create&id_session=$id_session'>Asignar Usuario a la Tanda</a>";
+        echo "<a href='" . $_SERVER['PHP_SELF'] . "?option=sesiones&action=create&id_session=$id_session' class='btn btn-success'>Asignar Usuario a la Tanda</a>";
         if($queryFields){
             echo "<table class=\"table\"  border='1'>
                 <tr>
@@ -146,7 +146,7 @@ if($_POST){
                 echo "<tr><td>".$queryFields[$a][0]."</td><td>".$queryFields[$a][1]."</td><td>". $queryFields[$a][2]."</td></tr>
               <td>
                
-                <a href='".$_SERVER['PHP_SELF']."?option=sesiones&action=delete&id=".$id_session."'>Borrar</a>&nbsp;
+                <a href='" . $_SERVER['PHP_SELF'] . "?option=sesiones&action=delete&id=" . $id_session . "' class='btn btn-danger btn-xs'>Borrar</a>&nbsp;
               </td></tr>";
             }
             echo "</table>";

@@ -1,0 +1,7 @@
+{
+  "require": {
+    "phpunit/phpunit": "^5.7",
+    "slim/slim": "4.x-dev",
+    "firebase/php-jwt": "4.0.*"
+  }
+}
