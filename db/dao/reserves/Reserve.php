@@ -6,7 +6,7 @@
  * Date: 12/11/2016
  * Time: 13:25
  */
-class Reserve
+class Reserve implements JsonSerializable
 {
 
     private $id;
@@ -119,5 +119,24 @@ class Reserve
     }
 
 
+    /**
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    function jsonSerialize()
+    {
 
+
+        return [
+            'user' => $this->user,
+            'date' => $this->date,
+            'number' => $this->number,
+            'type' => $this->type,
+            'kart_type' => $this->kart_type,
+
+        ];
+    }
 }

@@ -25,7 +25,6 @@ require '../lib/autoload.php';
 
 function getTokenFromHeader($request)
 {
-
     $header = $request->getHeader("Authorization")[0];
     return explode(" ", $header)[1];
 }
@@ -122,188 +121,141 @@ $app->get('/sessions/{token}', function (Request $request, Response $response) {
 });
 
 
-//
-///* Método para obtener listado de productos en formato JSON */
-//$app->get('/products', function (Request $request, Response $response) {
-//
-//    $prodDAO=new ItemsDAO();
-//    $prodList=$prodDAO->getAllJson();
-//
-//    $JsonResponse = $response->withJson($prodList);
-//
-//    return $JsonResponse;
-//
-//
-//});
-//
-//
-///* Método para obtener listado de productos en formato JSON */
-//$app->get('/hello/{name}', function (Request $request, Response $response) {
-//
-//    $name = $request->getAttribute("name");
-//    $response->getBody()->write("hello".$name);
-//
-//    return $response;
-//
-//
-//});
-//
-///* Método para obtener listado de productos en formato JSON */
-//$app->post('/hello/{name}', function (Request $request, Response $response) {
-//
-//        $data = $request->getParsedBody();
-//        $
-//
-//    $name = $request->getAttribute("name");
-//    $response->getBody()->write("hello".$name);
-//
-//    return $response;
-//
-//
-//});
-//
-///* Método para obtener información de un usuario a partir de su login */
-//$app->get('/user/{login}', function(Request $request, Response $response)
-//{
-//
-//    $login = $request->getAttribute("login");
-//    $userDAO = new UserDAO();
-//    $user=$userDAO->getByLogin($login);
-//    $json = json_encode($user);
-//
-//    $JsonResponse = $response->withJson($json);
-//    return $JsonResponse;
-//});
-//
-//
-//
-///* Método para crear un usuario */
-//$app->post('/user', function(Request $request, Response $response)
-//{
-//
-//    $json = $request->getParsedBody();
-//
-//    try{
-//        JwtAuth::check($json['access_token']);
-//    }catch(Throwable $t){
-//        return $response->withStatus(401);
-//    }
-//
-//    $login = $json['login'];
-//    $email = $json['email'];
-//    $password = password_hash($json['password'],true);
-//    $firstname = $json['firstname'];
-//    $lastname = $json['lastname'];
-//
-//    $user=new User();
-//    $user->setLogin($login);
-//    $user->setEmail($email);
-//    $user->setPassword($password);
-//    $user->setFirstName($firstname);
-//    $user->setLastName($lastname);
-//
-//    $userDAO = new UserDAO();
-//
-//    if ($userDAO->insert($user) == 1) {
-//        return $response->withStatus(201, 'Usuario registrado correctamente');
-//    } else {
-//        return $response->withStatus(500, 'El usuario no pudo ser registrado');
-//    }
-//
-//    /*
-//     *
-//      {
-//        "login":"pepe",
-//        "password":"pepe",
-//        "firstname":"Pepe",
-//        "lastname":"Pilon",
-//        "email":"pepe@pepe.es"
-//      }
-//     */
-//
-//});
-//
-//
-//
-///* Método para actualizar un usuario */
-//$app->put('/user', function(Request $request, Response $response)
-//{
-//
-//    $json = $request->getParsedBody();
-//
-//    try{
-//        JwtAuth::check($json['access_token']);
-//    }catch(Throwable $t){
-//        return $response->withStatus(401);
-//    }
-//
-//    $login = $json['login'];
-//    $email = $json['email'];
-//    $password = password_hash($json['password'],true);
-//    $firstname = $json['firstname'];
-//    $lastname = $json['lastname'];
-//
-//    $userDAO = new UserDAO();
-//    $user= $userDAO->getByLogin($login);
-//
-//    if($user == null){
-//        return $response->withStatus(404, 'Usuario no encontrado');
-//    }
-//
-//    $user->setEmail($email);
-//    $user->setPassword($password);
-//    $user->setFirstName($firstname);
-//    $user->setLastName($lastname);
-//
-//
-//
-//    if ($userDAO->update($user) == 1) {
-//        return $response->withStatus(202, 'Usuario actualizado correctamente');
-//    } else {
-//        return $response->withStatus(500, 'El usuario no pudo ser actualizado');
-//    }
-//
-//    /*
-//     *
-//      {
-//        "login":"pepe",
-//        "password":"pepe",
-//        "firstname":"Pepin",
-//        "lastname":"Pilon",
-//        "email":"pepe@pepe.es"
-//      }
-//     */
-//
-//});
-//
-//
-//
-///* Método para eliminar un usuario */
-//$app->delete('/user/{login}', function(Request $request, Response $response)
-//{
-//    $json = $request->getParsedBody();
-//
-//    try{
-//        JwtAuth::check($json['access_token']);
-//    }catch(Throwable $t){
-//        return $response->withStatus(401);
-//    }
-//
-//    $login = $request->getAttribute("login");
-//    $userDAO = new UserDAO();
-//    $user=$userDAO->getByLogin($login);
-//
-//    if($user == null){
-//        return $response->withStatus(404, 'Usuario no encontrado');
-//    }
-//
-//    if ($userDAO->delete($user->getId()) == 1) {
-//        return $response->withStatus(204);
-//    } else {
-//        return $response->withStatus(500, 'El usuario no pudo ser eliminado');
-//    }
-//
-//});
+/* Método para obtener información de un usuario a partir de su login */
+$app->get('/user/{login}', function (Request $request, Response $response) {
+
+    $token = getTokenFromHeader($request);
+    $code = checkToken($token, $response);
+    if ($code != null) return $response->withStatus($code);
+
+    $login = $request->getAttribute("login");
+    $data = JwtAuth::GetData($token);
+
+    if ($data->name != $login)
+        return $response->withStatus(401, "No se puede obtener información de otro usuario");
+
+    $userDAO = new UserDAO();
+    $user = $userDAO->getByLogin($login);
+
+    if ($user) {
+
+        $json = json_encode($user);
+        $JsonResponse = $response->withJson($json);
+
+        return $JsonResponse;
+    } else
+        return $response->withStatus(500, "No se ha podido obtener el usuario");
+
+});
+
+
+$app->get('/reservas/{login}', function (Request $request, Response $response) {
+
+    $token = getTokenFromHeader($request);
+    $code = checkToken($token, $response);
+    if ($code != null) return $response->withStatus($code);
+
+    $login = $request->getAttribute("login");
+    $data = JwtAuth::GetData($token);
+
+    if ($data->name != $login)
+        return $response->withStatus(401, "No se pueden obtener reservas de otro usuario");
+
+    $reservesDAO = new ReservesDAO();
+    $listReserves = $reservesDAO->getAllFromUser($data->id);
+    $jsonList = json_encode($listReserves);
+
+    return $response->withJson($jsonList);
+
+
+});
+
+
+$app->post('/reserva', function (Request $request, Response $response) {
+
+    $token = getTokenFromJson($request, "access_token");
+    $code = checkToken($token, $response);
+    if ($code != null) return $response->withStatus($code);
+
+    $data = JwtAuth::GetData($token);
+    $json = $request->getParsedBody();
+
+    $reserve_ins = new Reserve();
+    $reserve_ins->setUser($data->id);
+    $reserve_ins->setDate($json['date']);
+    $reserve_ins->setNumber($json['number']);
+    $reserve_ins->setType($json['type']);
+    $reserve_ins->setKartType($json['kart_type']);
+
+    $reservesDAO = new ReservesDAO();
+    if ($reservesDAO->insert($reserve_ins) == 1) {
+        return $response->withStatus(201, 'Reserva creada correctamente');
+    } else {
+        return $response->withStatus(500, 'La reserva no pudo ser creada');
+    }
+
+});
+
+
+$app->put('/reserva/{id}', function (Request $request, Response $response) {
+
+    $token = getTokenFromJson($request, "access_token");
+    $code = checkToken($token, $response);
+    if ($code != null) return $response->withStatus($code);
+
+    $data = JwtAuth::GetData($token);
+    $json = $request->getParsedBody();
+
+    $id = $request->getAttribute("id");
+
+    $reservesDAO = new ReservesDAO();
+    $reserve_upd = $reservesDAO->getById($id);
+
+    if ($reserve_upd->getUser() != $data->id)
+        return $response->withStatus(401, "No estás autorizado para editar esta reserva");
+
+    $reserve_upd->setUser($data->id);
+    $reserve_upd->setDate($json['date']);
+    $reserve_upd->setNumber($json['number']);
+    $reserve_upd->setType($json['type']);
+    $reserve_upd->setKartType($json['kart_type']);
+
+    if ($reservesDAO->update($reserve_upd) == 1) {
+        return $response->withStatus(202, 'Reserva actualizada correctamente');
+    } else {
+        return $response->withStatus(500, 'La reserva no pudo ser actualizada');
+    }
+
+});
+
+
+$app->delete('/reserva/{id}', function (Request $request, Response $response) {
+
+    $token = getTokenFromJson($request, "access_token");
+    $code = checkToken($token, $response);
+    if ($code != null) return $response->withStatus($code);
+
+    $data = JwtAuth::GetData($token);
+    $json = $request->getParsedBody();
+
+    $id = $request->getAttribute("id");
+
+    $reservesDAO = new ReservesDAO();
+    $reserva = $reservesDAO->getById($id);
+
+    if ($reserva->getUser() != $data->id)
+        return $response->withStatus(401, "No estás autorizado para eliminar esta reserva");
+
+
+    if ($reservesDAO->delete($id) == 1) {
+        return $response->withStatus(204);
+    } else {
+        return $response->withStatus(500, "La reserva no pudo ser eliminada");
+    }
+
+});
+
+
 
 
 $app->run();

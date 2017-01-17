@@ -118,19 +118,25 @@ class ReservesDAO
 
     }
 
-
     /**
-     * @param $id
-     * @return bool
-     * const USER = "user";
-    const DATE = "date";
-    const NUMBER = "number";
-    const TYPE = "type";
-    const KART_TYPE = "kart_type";
+     * API**************************************************************************
      */
 
+    public function getAllFromUser($user_id)
+    {
 
+        $ds = new DataSource();
+        $sql = sprintf("SELECT * from %s WHERE %s=? ", self::_TABLE, self::USER);
+        $params = array($user_id);
+        $reserve = $ds->fetchAllToClass($sql, self::_CLASS, $params);
+        $ds->close();
 
+        return $reserve;
+
+    }
+    /**
+     * API**************************************************************************
+     */
 
 
     /**

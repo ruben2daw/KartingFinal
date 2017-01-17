@@ -1,13 +1,13 @@
 <?php
 /*TANDA O CARRERA*/
 
-class Session
+class Session implements JsonSerializable
 {
 
-    public $id;
-    public $name;
-    public $date;
-    public $type;
+    private $id;
+    private $name;
+    private $date;
+    private $type;
 
     /**
      * Session constructor.
@@ -92,7 +92,15 @@ class Session
      */
     function jsonSerialize()
     {
-        return $this->array;
+
+
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'date' => $this->date,
+            'type' => $this->type,
+
+        ];
     }
 }
 
